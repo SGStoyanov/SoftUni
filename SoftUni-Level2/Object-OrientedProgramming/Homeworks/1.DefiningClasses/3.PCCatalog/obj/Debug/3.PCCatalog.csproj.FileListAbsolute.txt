@@ -1,0 +1,7 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.PCCatalog\bin\Debug\3.PCCatalog.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\3.PCCatalog\bin\Debug\3.PCCatalog.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\3.PCCatalog\bin\Debug\3.PCCatalog.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\3.PCCatalog\bin\Debug\3.PCCatalog.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\3.PCCatalog\obj\Debug\3.PCCatalog.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\3.PCCatalog\obj\Debug\3.PCCatalog.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\3.PCCatalog\obj\Debug\3.PCCatalog.pdb
