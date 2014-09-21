@@ -1,0 +1,7 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\2.LaptopShop\bin\Debug\2.LaptopShop.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\bin\Debug\2.LaptopShop.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\bin\Debug\2.LaptopShop.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\bin\Debug\2.LaptopShop.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\obj\Debug\2.LaptopShop.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\obj\Debug\2.LaptopShop.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\1.DefiningClasses\2.LaptopShop\obj\Debug\2.LaptopShop.pdb

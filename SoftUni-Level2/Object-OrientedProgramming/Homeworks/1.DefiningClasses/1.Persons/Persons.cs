@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-class Person
+public class Person
 {
 
     public Person(string name, int age)
@@ -82,7 +78,6 @@ class Person
 
 public class Program
 {
-
     static void Main()
     {
         Person p1 = new Person("Kozmin", 29, "kozminmozi@fcludogoretz.bg");
