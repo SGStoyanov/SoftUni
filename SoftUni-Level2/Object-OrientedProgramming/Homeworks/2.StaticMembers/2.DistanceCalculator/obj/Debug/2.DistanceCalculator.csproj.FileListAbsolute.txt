@@ -1,0 +1,6 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\2.StaticMembers\2.DistanceCalculator\bin\Debug\2.DistanceCalculator.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\2.StaticMembers\2.DistanceCalculator\bin\Debug\2.DistanceCalculator.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\2.StaticMembers\2.DistanceCalculator\bin\Debug\2.DistanceCalculator.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\2.StaticMembers\2.DistanceCalculator\obj\Debug\2.DistanceCalculator.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\2.StaticMembers\2.DistanceCalculator\obj\Debug\2.DistanceCalculator.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\2.StaticMembers\2.DistanceCalculator\obj\Debug\2.DistanceCalculator.pdb
