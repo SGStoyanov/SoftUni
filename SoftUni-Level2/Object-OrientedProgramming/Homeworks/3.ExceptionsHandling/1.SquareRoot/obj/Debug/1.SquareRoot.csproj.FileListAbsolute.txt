@@ -1,0 +1,6 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.ExceptionsHandling\1.SquareRoot\bin\Debug\1.SquareRoot.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.ExceptionsHandling\1.SquareRoot\bin\Debug\1.SquareRoot.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.ExceptionsHandling\1.SquareRoot\bin\Debug\1.SquareRoot.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.ExceptionsHandling\1.SquareRoot\obj\Debug\1.SquareRoot.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.ExceptionsHandling\1.SquareRoot\obj\Debug\1.SquareRoot.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\3.ExceptionsHandling\1.SquareRoot\obj\Debug\1.SquareRoot.pdb
