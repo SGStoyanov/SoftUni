@@ -1,0 +1,6 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\1.GalacticGPS\bin\Debug\1.GalacticGPS.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\1.GalacticGPS\bin\Debug\1.GalacticGPS.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\1.GalacticGPS\bin\Debug\1.GalacticGPS.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\1.GalacticGPS\obj\Debug\1.GalacticGPS.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\1.GalacticGPS\obj\Debug\1.GalacticGPS.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\1.GalacticGPS\obj\Debug\1.GalacticGPS.pdb

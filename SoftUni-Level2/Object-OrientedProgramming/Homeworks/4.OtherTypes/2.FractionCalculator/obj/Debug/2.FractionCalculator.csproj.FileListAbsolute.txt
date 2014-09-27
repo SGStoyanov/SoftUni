@@ -1,0 +1,6 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\2.FractionCalculator\bin\Debug\2.FractionCalculator.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\2.FractionCalculator\bin\Debug\2.FractionCalculator.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\2.FractionCalculator\bin\Debug\2.FractionCalculator.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\2.FractionCalculator\obj\Debug\2.FractionCalculator.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\2.FractionCalculator\obj\Debug\2.FractionCalculator.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\2.FractionCalculator\obj\Debug\2.FractionCalculator.pdb
