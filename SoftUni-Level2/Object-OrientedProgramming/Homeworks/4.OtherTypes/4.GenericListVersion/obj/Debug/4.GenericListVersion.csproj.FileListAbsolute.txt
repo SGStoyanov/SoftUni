@@ -1,0 +1,5 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\4.GenericListVersion\bin\Debug\4.GenericListVersion.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\4.GenericListVersion\bin\Debug\4.GenericListVersion.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\4.GenericListVersion\bin\Debug\4.GenericListVersion.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\4.GenericListVersion\obj\Debug\4.GenericListVersion.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\4.OtherTypes\4.GenericListVersion\obj\Debug\4.GenericListVersion.pdb
