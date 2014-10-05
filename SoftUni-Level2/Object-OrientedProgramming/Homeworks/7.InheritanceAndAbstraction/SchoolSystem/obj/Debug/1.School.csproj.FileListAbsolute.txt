@@ -1,0 +1,6 @@
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\7.InheritanceAndAbstraction\1.School\bin\Debug\1.School.exe.config
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\7.InheritanceAndAbstraction\1.School\bin\Debug\1.School.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\7.InheritanceAndAbstraction\1.School\bin\Debug\1.School.pdb
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\7.InheritanceAndAbstraction\1.School\obj\Debug\1.School.csprojResolveAssemblyReference.cache
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\7.InheritanceAndAbstraction\1.School\obj\Debug\1.School.exe
+D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\7.InheritanceAndAbstraction\1.School\obj\Debug\1.School.pdb
