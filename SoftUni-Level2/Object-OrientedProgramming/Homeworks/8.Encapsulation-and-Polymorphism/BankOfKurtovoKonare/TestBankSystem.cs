@@ -7,20 +7,22 @@
     {
         public static void Main()
         {
-            ICustomer pesho = new IndividualCustomer("Petar Petrov");
-            ICustomer agroCompany = new CompanyCustomer("Agro Company Ltd.");
+            ICustomer gosho = new IndividualCustomer("Georgi Georgiev");
+            ICustomer myCompany = new CompanyCustomer("My Company Ltd.");
 
-            IAccount mortgageAccInd = new MortgageAccount(pesho, 1024m, 5.3m);
-            IAccount mortgageAccComp = new MortgageAccount(agroCompany, 1024m, 5.3m);
-            IAccount loanAccInd = new LoanAccount(pesho, 1024m, 5.3m);
-            IAccount loanAccComp = new LoanAccount(agroCompany, 1024m, 5.3m);
-            IAccount depositAccIndBig = new DepositAccount(pesho, 1024m, 5.3m);
-            IAccount depositAccIndSmall = new DepositAccount(pesho, 999m, 5.3m);
-            IAccount depositAccComp = new DepositAccount(agroCompany, 11024m, 4.3m);
+            IAccount mortAccInd = new MortgageAccount(gosho, 924m, 2.4m);
+            IAccount mortgageAccComp = new MortgageAccount(myCompany, 888m, 7.4m);
+
+            IAccount loanAccInd = new LoanAccount(gosho, 2048m, 4.5m);
+            IAccount loanAccComp = new LoanAccount(myCompany, 512m, 6.0m);
+
+            IAccount depositAccIndBig = new DepositAccount(gosho, 888, 6.6m);
+            IAccount depositAccIndSmall = new DepositAccount(gosho, 1111m, 7.9m);
+            IAccount depositAccComp = new DepositAccount(myCompany, 50326m, 4.9m);
 
             List<IAccount> accounts = new List<IAccount>()
             {
-                mortgageAccInd,
+                mortAccInd,
                 mortgageAccComp,
                 loanAccInd,
                 loanAccComp,

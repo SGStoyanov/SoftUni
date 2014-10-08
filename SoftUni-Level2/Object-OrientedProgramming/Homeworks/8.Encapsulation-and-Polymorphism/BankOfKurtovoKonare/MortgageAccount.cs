@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class MortgageAccount : Account, IAccount, IDepositable
+    public class MortgageAccount : Account
     {
         public MortgageAccount(ICustomer customer, decimal balance, decimal monthlyInterestRate)
             : base(customer, balance, monthlyInterestRate)

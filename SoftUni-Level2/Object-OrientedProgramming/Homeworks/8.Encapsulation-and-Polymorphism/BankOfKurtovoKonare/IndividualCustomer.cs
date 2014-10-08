@@ -1,6 +1,6 @@
 ﻿namespace BankSystem
 {
-    public class IndividualCustomer : Customer, ICustomer
+    public class IndividualCustomer : Customer
     {
         public IndividualCustomer(string name)
             : base(name)

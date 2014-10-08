@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="TheSlum.Bonus" Collapsed="true">
     <Position X="8.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
@@ -37,7 +37,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TheSlum.GameEngine.Engine" Collapsed="true">
-    <Position X="3" Y="2" Width="1.5" />
+    <Position X="3" Y="2" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AIyAAAAAAAAAIAAAAEFAgAAAiAAABQAAAgAAAAAAEAo=</HashCode>
       <FileName>GameEngine\Engine.cs</FileName>
