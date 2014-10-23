@@ -1,9 +1,13 @@
 <?php
+
+require_once("Guest.class.php");
+
 class Reservation
 {
     private $startDate;
     private $endDate;
     private $guest;
+
     /**
      * @param string $startDate Data in format "d-m-y".
      * @param string $endDate Data in format "d-m-y".
@@ -15,6 +19,7 @@ class Reservation
         $this->endDate = new DateTime($endDate);
         $this->guest = $guest;
     }
+
     /**
      * @param \Guest $guest
      */
@@ -22,6 +27,7 @@ class Reservation
     {
         $this->guest = $guest;
     }
+
     /**
      * @return \Guest
      */
@@ -29,6 +35,7 @@ class Reservation
     {
         return $this->guest;
     }
+
     /**
      * @param \DateTime $endDate
      */
@@ -36,6 +43,7 @@ class Reservation
     {
         $this->endDate = $endDate;
     }
+
     /**
      * @return \DateTime
      */
@@ -43,6 +51,7 @@ class Reservation
     {
         return $this->endDate;
     }
+
     /**
      * @param \DateTime $startDate
      */
@@ -50,6 +59,7 @@ class Reservation
     {
         $this->startDate = $startDate;
     }
+
     /**
      * @return \DateTime
      */
@@ -57,10 +67,12 @@ class Reservation
     {
         return $this->startDate;
     }
+
     function __toString()
     {
         return "Start Date: " . $this->startDate->format("d-m-y") . "\n"
         . "End Date: " . $this->endDate->format("d-m-y") . "\n"
         . $this->guest->__toString();
     }
+
 } 

@@ -1,7 +1,7 @@
 <?php
 
-function __autoload($className)
-{
+
+function __autoload($className) {
     include_once("./" . $className . ".class.php");
 }
 
@@ -14,26 +14,21 @@ $secondReservation = new Reservation("21-10-2014", "24-10-2014", $secondQuest);
 $thirdReservation = new Reservation("05-10-2014", "06-10-2014", $thirdQuest);
 
 
-$rooms[201] = new SingleRoom(322, 50);
+$rooms[322] = new SingleRoom(322, 50);
 
-BookManager::bookRoom($rooms[207],$firstReservation);
-BookManager::bookRoom($rooms[205], $fourReservation);
+BookManager::bookRoom($rooms[322], $firstReservation);
 
-$rooms[305] = new SingleRoom(326, 66);
+$rooms[326] = new SingleRoom(326, 66);
 
-BookManager::bookRoom($rooms[305],$firstReservation);
+BookManager::bookRoom($rooms[326], $thirdReservation);
 BookManager::bookRoom($rooms[305], $secondReservation);
 
-$rooms[401] = new SingleRoom(452, 70);
-$rooms[412] = new Bedroom(493, 120);
-
-$rooms[410] = new Bedroom(400, 60);
-$rooms[501] = new Apartment(621, 200);
-
-BookManager::bookRoom($rooms[521], $secondReservation);
-
-$rooms[502] = new Apartment(513, 300);
-$rooms[601] = new Apartment(651, 400);
+$rooms[452] = new SingleRoom(452, 70);
+$rooms[493] = new Bedroom(493, 120);
+$rooms[400] = new Bedroom(400, 60);
+$rooms[501] = new Apartment(501, 200);
+$rooms[522] = new Apartment(522, 300);
+$rooms[612] = new Apartment(612, 400);
 
 echo PHP_EOL;
 echo "Bedrooms and apartments with a price less or equal to 250.00";
