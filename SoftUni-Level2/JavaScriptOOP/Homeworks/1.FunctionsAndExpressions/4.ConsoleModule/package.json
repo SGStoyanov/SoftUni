@@ -1,0 +1,10 @@
+{
+  "name": "_4.ConsoleModule",
+  "version": "0.0.0",
+  "description": "4.ConsoleModule",
+  "main": "app.js",
+  "author": {
+    "name": "ADM-BGSSTNV",
+    "email": ""
+  }
+}
