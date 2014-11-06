@@ -1,0 +1,10 @@
+{
+  "name": "CanvasGeometryAPI",
+  "version": "0.0.0",
+  "description": "CanvasGeometryAPI",
+  "main": "app.js",
+  "author": {
+    "name": "ADM-BGSSTNV",
+    "email": ""
+  }
+}

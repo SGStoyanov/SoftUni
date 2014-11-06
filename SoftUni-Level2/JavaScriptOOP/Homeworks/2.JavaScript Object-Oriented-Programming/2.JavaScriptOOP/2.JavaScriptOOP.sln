@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Shapes", "Shapes\Shapes.njsproj", "{D5F65607-A202-4EFD-AD56-87D2D9BD908C}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CanvasGeometryAPI", "CanvasGeometryAPI\CanvasGeometryAPI.njsproj", "{1249C39A-F6E0-431D-B271-73016464879B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5F65607-A202-4EFD-AD56-87D2D9BD908C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F65607-A202-4EFD-AD56-87D2D9BD908C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F65607-A202-4EFD-AD56-87D2D9BD908C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F65607-A202-4EFD-AD56-87D2D9BD908C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1249C39A-F6E0-431D-B271-73016464879B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1249C39A-F6E0-431D-B271-73016464879B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1249C39A-F6E0-431D-B271-73016464879B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1249C39A-F6E0-431D-B271-73016464879B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
