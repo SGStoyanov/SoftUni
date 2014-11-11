@@ -1,0 +1,10 @@
+{
+  "name": "AMDandRequireJS",
+  "version": "0.0.0",
+  "description": "AMDandRequireJS",
+  "main": "app.js",
+  "author": {
+    "name": "ADM-BGSSTNV",
+    "email": ""
+  }
+}

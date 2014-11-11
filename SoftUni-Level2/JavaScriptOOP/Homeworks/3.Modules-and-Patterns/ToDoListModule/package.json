@@ -1,0 +1,10 @@
+{
+  "name": "ToDoListModule",
+  "version": "0.0.0",
+  "description": "ToDoListModule",
+  "main": "app.js",
+  "author": {
+    "name": "ADM-BGSSTNV",
+    "email": ""
+  }
+}
