@@ -10,3 +10,6 @@ D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.Functional
 D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\3.ClassStudent\bin\Debug\3.ClassStudent.exe
 D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\3.ClassStudent\bin\Debug\3.ClassStudent.pdb
 D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\3.ClassStudent\obj\Debug\3-14.ClassStudent.csprojResolveAssemblyReference.cache
+E:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\3.ClassStudent\bin\Debug\3.ClassStudent.exe.config
+E:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\3.ClassStudent\obj\Debug\3.ClassStudent.exe
+E:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\3.ClassStudent\obj\Debug\3.ClassStudent.pdb

@@ -4,11 +4,15 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+/*
+ * The main class that implements the functionality of the game
+ */
 @SuppressWarnings("serial")
 public class Game extends Canvas implements Runnable {
-	public static Snake currentSnake;
+	
+	public static Snake snake;
 	public static Apple apple;
-	static int points;
+	static int score;
 	
 	private Graphics globalGraphics;
 	private Thread runThread;
@@ -16,12 +20,18 @@ public class Game extends Canvas implements Runnable {
 	public static final int HEIGHT = 600;
 	private final Dimension playgroundDimensions = new Dimension(WIDTH, HEIGHT);
 	
+	/*
+	 * field showing whether the game should continue
+	 */
 	static boolean gameRunning = false;
 	
+	/*
+	 * A method which creates a new playground and sets the game as started.
+	 */
 	public void paint(Graphics g){
 		this.setPreferredSize(playgroundDimensions);
 		globalGraphics = g.create();
-		points = 0;
+		score = 0;
 		
 		if(runThread == null){
 			runThread = new Thread(this);
@@ -30,9 +40,12 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 	
+	/*
+	 * If the game is running, the snake is being drawn with pauses of 100 ms.
+	 */
 	public void run(){
 		while(gameRunning){
-			currentSnake.tick();
+			snake.tick();
 			render(globalGraphics);
 			try {
 				Thread.sleep(100);
@@ -42,18 +55,21 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 	
+	/*
+	 * A constructor which creates the game objects.
+	 */
 	public Game(){	
-		currentSnake = new Snake();
-		apple = new Apple(currentSnake);
+		snake = new Snake();
+		apple = new Apple(snake);
 	}
 		
+	// A method responsible for the rendering of all graphics.
 	public void render(Graphics g){
 		g.clearRect(0, 0, WIDTH, HEIGHT+25);
-		
 		g.drawRect(0, 0, WIDTH, HEIGHT);			
-		currentSnake.drawSnake(g);
+		snake.drawSnake(g);
 		apple.drawApple(g);
-		g.drawString("score= " + points, 10, HEIGHT + 25);		
+		g.drawString("score= " + score, 10, HEIGHT + 25);		
 	}
 }
 

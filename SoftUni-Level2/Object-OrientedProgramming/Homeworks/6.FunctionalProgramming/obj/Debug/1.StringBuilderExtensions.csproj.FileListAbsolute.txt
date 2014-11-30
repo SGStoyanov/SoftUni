@@ -10,3 +10,6 @@ D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.Functional
 D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\bin\Debug\FunctionalProgramming.exe
 D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\bin\Debug\FunctionalProgramming.pdb
 D:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\obj\Debug\1.StringBuilderExtensions.csprojResolveAssemblyReference.cache
+E:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\bin\Debug\FunctionalProgramming.exe.config
+E:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\obj\Debug\FunctionalProgramming.exe
+E:\Data\SoftUni\SoftUni-Level2\Object-OrientedProgramming\Homeworks\6.FunctionalProgramming\obj\Debug\FunctionalProgramming.pdb

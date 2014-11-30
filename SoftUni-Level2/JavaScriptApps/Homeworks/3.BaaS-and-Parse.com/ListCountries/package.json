@@ -1,0 +1,10 @@
+{
+  "name": "ListCountries",
+  "version": "0.0.0",
+  "description": "ListCountries",
+  "main": "app.js",
+  "author": {
+    "name": "ADM-BGSSTNV",
+    "email": ""
+  }
+}
