@@ -1,0 +1,15 @@
+{
+  "name": "Exam-JavaScriptApps",
+  "version": "1.0.0",
+  "description": "Exam-JavaScriptApps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "emz",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.1.1",
+    "noty": "^2.3.2"
+  }
+}
