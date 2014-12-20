@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bind Image to Text Box</title>
+    <style rel="stylesheet" type="text/css">
+        body {
+            padding: 1%;
+        }
+    </style>
+    <script src="../lib/angular.js" type="application/javascript"></script>
+    <script src="app.js" type="application/javascript"></script>
+</head>
+
+<body ng-app="bindImage" ng-controller="MainCtrl">
+    <br/>
+    <div>
+        <strong>Image url: </strong>
+        <form name="imgForm">
+            <input ng-class= "{
+                        error: imgForm.imageUrl.$dirty && imgForm.imageUrl.$invalid,
+                        success: imgForm.imageUrl.$dirty && imgForm.imageUrl.$valid
+                   }"
+                   validate-image-url
+                   ng-model="imageUrl"
+                   type="url"
+                   ng-pattern="/(https?:\/\/.*\.(?:png|jpg|gif|jpeg))/i"
+                   name="imageUrl"
+            />
+        </form>
+    </div>
+    <br/>
+    <div>
+        <h2 ng-show="imgForm.imageUrl.$invalid && imgForm.imageUrl.$dirty">Image url is not valid!</h2>
+        <img ng-src="{{imageUrl}}" ng-hide="imgForm.imageUrl.$invalid" class="img" src="" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="firstApp">
+<head>
+    <meta charset="utf-8">
+    <title>Student Page</title>
+    <script src="../lib/angular.js"></script>
+    <style rel="stylesheet" type="text/css">
+        #studentInfoTable {
+            border: 1px solid black;
+        }
+        tr, td {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body ng-controller="StudentInfoApp">
+<label for="studentInfoTable"><h1>Student Info</h1></label>
+    <table id="studentInfoTable">
+        <thead>
+            <tr id="header"><th>Name</th><th>Photo</th><th>Grade</th><th>School</th><th>Teacher</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ studentName }}</td>
+                <td><img ng-src={{studentPhoto}} ng-style="{'width':'30px', 'height':'30px'}"></td>
+                <td>{{ studentGrade }}</td>
+                <td>{{ studentSchool }}</td>
+                <td>{{ studentTeacher }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script type="text/javascript">
+        (function(){
+            'use strict';
+
+            var studentObj = {
+                name: "Pesho",
+                photo: "http://www.nakov.com/wp-content/uploads/2014/05/SoftUni-Logo.png",
+                grade: 5,
+                school: "High School of Mathematics",
+                teacher: "Gichka Pesheva"
+            };
+
+            var app = angular.module('firstApp', []);
+            app.controller('StudentInfoApp', function($scope) {
+                $scope.studentName = studentObj.name;
+                $scope.studentPhoto = studentObj.photo;
+                $scope.studentGrade = studentObj.grade;
+                $scope.studentSchool = studentObj.school;
+                $scope.studentTeacher = studentObj.teacher;
+            });
+        }());
+    </script>
+</body>
+</html>
