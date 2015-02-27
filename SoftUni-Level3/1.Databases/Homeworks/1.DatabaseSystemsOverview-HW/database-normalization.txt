@@ -1,0 +1,23 @@
+Database Normalization is a technique of organizing the data in the database. Normalization is a systematic approach of decomposing tables to eliminate data redundancy and undesirable characteristics like Insertion, Update and Deletion anomalies. It is a multi-step process that puts data into tabular form by removing duplicated data from the relation tables.
+Normalization is mainly used for two purposes:
+	1) Eliminating redundant data
+	2) Ensuring data dependencies are logically stored
+
+The Normalization is divided into the following phases:
+
+1. First Normal Form - no two Rows of data must contain repating group of information, i.e. each set of column must have a unique value, such that multiple columns cannot be used to fetch the same row. Each table should be organized into rows, and each row should have a primary key that distinguishes it as unique.
+In First Normal Form, any row must not have a column in which more than one value is saved, like separated with commas. Rather than that, we must separate such data into multiple rows.
+
+2. Second Normal Form - as per this form there must not be any partial dependency of any column on a primary key. It means that for a table that has a concatenated primary key, each column in the table that is not part of the primary key must depend upon the entire concatenated key for its existence. If any column depends only on one part of the concatenated key, then the table fails Second Normal Form.
+
+3. Third Normal Form - applied that every non-prime attribute of table must be dependent on primary key. The transitive functional dependency should be removed from the table. The table must be in Second Normal Form.
+The advantage of removing the transitive dependency is:
+	The amount of data duplication is reduced;
+	Data integrity is achieved
+	
+4. BCNF - the "Boyce and Codd Normal Form" is just a higher version of the Third Normal Form. It deals certain type of anomaly not handled by 3NF. A 3NF table which doesn't have multiple overlapping candidate keys is said to be in BCNF.
+
+
+Problem 7. What are the advantages of normilized databases?
+
+The advantage of having a highly normalized data schema is that information is stored in one place and one place only, reducing the possibility of inconsistent data. Furthermore, highly-normalized data schemas in general are closer conceptually to object-oriented schemas because the object-oriented goals of promoting high cohesion and loose coupling between classes results in similar solutions (at least from a data point of view). This generally makes it easier to map your objects to your data schema.

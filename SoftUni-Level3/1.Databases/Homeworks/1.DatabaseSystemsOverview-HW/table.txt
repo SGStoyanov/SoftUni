@@ -1,0 +1,2 @@
+The data in RDBMS is stored in database objects called "tables". The table is a collection of related data entries and it consists of columns and rows. Each table has a unique identifier or "primary key". The tables are then related to one another using "foreign keys". A foreign key is simply the primary key in a different table. Diagrammatically, a foreign key is depicted as a line with an arrow at one end.
+There are one-to-many and many-to-many relations between tables.

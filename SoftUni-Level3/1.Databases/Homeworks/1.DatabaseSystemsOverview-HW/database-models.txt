@@ -1,0 +1,20 @@
+Some of the popular database models are:
+
+	Hierarchical database model
+	Network model
+	Relational model
+	Entity–relationship model
+	Object model
+	Document model
+	Entity–attribute–value model
+	Star schema
+	
+	
+	The network model and the hierarchical model are the predecessors of the relational model. They build upon individual data sets and are able to express hierarchical or network like structures of the real world.
+	A hierarchical database model is a data model in which the data is organized into a tree-like structure. The data is stored as records which are connected to one another through links. A record is a collection of fields, with each field containing only one value. The entity type of a record defines which fields the record contains.
+
+	Example of a hierarchical model: http://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Hierarchical_Model.svg/320px-Hierarchical_Model.svg.png
+
+	A record in the hierarchical database model corresponds to a row (or tuple) in the relational database model and an entity type corresponds to a table (or relation).
+
+	The hierarchical database model mandates that each child record has only one parent, whereas each parent record can have one or more child records. In order to retrieve data from a hierarchical database the whole tree needs to be traversed starting from the root node. This model is recognized as the first database model created by IBM in the 1960s.

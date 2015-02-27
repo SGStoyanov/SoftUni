@@ -1,0 +1,17 @@
+NoSQL DEFINITION: Next Generation Databases mostly addressing some of the points: being non-relational, distributed, open-source and horizontally scalable.
+The original intention has been modern web-scale databases. The movement began early 2009 and is growing rapidly. Often more characteristics apply such as: schema-free, easy replication support, simple API, eventually consistent / BASE (not ACID), a huge amount of data and more. So the misleading term "nosql" (the community now translates it mostly with "not only sql") should be seen as an alias to something like the definition above.
+
+Generally, the NoSQL database systems are divided to:
+Wide Column Store/Column Families;
+Document Store;
+Key Value/Tuple Store;
+Graph Databases;
+Multimodel Databases;
+Object Databases;
+Grid and Cloud Database solutions;
+XML Databases;
+Multidimensional Databases;
+...
+
+Some of the most popular currently NoSQL databases are:
+Hadoop, Cassandra (maintained by Facebook), MongoDB and others.

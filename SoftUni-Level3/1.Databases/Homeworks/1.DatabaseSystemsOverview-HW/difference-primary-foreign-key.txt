@@ -1,0 +1,8 @@
+Primary Key
+A primary key is a field in a table which uniquely identifies each row/record in a database table. Primary keys must contain unique values. A primary key column cannot have NULL values.
+A table can have only one primary key, which may consist of single or multiple fields. When multiple fields are used as a primary key, they are called a composite key.
+If a table has a primary key defined on any field(s), then you can not have two records having the same value of that field(s).
+
+Foreign Key
+The tables are related to one another using "foreign keys". A foreign key is simply the primary key in a different table. The relationship between 2 tables matches the Primary Key in one of the tables with a Foreign Key in the second table. It is sometimes called "a referencing key". Diagrammatically, a foreign key is depicted as a line with an arrow at one end.
+If a table has a primary key defined on any field(s), then you can not have two records having the same value of that field(s).
