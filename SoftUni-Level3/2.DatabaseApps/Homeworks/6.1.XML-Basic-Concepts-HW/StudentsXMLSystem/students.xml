@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<students:students name="StudentXMLSystem" xmlns:students="http://www.somesite.com/students">
+  <students:student>
+    <name>Petar Petrov</name>
+    <gender>Male</gender>
+    <birth-date>2015-03-25</birth-date>
+    <email>petar.petrov@mail.be</email>
+    <university>TU-Varna</university>
+    <specialty>CST</specialty>
+    <faculty-number>0265968</faculty-number>
+    <taken-exams>
+      <exam-name>Discrete Math</exam-name>
+      <date-taken>2003-06-02</date-taken>
+      <grade>6</grade>
+      <exam-name>Physics</exam-name>
+      <date-taken>2003-07-06</date-taken>
+      <grade>3</grade>
+    </taken-exams>
+  </students:student>
+  <students:student>
+    <name>Jivko Jivov</name>
+    <gender>Male</gender>
+    <birth-date>1995-06-23</birth-date>
+    <email>jivko.jivov@mail.be</email>
+    <university>University of Economics - Varna</university>
+    <specialty>Accounting</specialty>
+    <faculty-number>04569821</faculty-number>
+    <taken-exams>
+      <exam-name>Macro economics</exam-name>
+      <date-taken>2005-03-28</date-taken>
+      <grade>5</grade>
+      <exam-name>Informatics</exam-name>
+      <date-taken>2005-04-15</date-taken>
+      <grade>5</grade>
+    </taken-exams>
+  </students:student>
+  <students:student>
+    <name>Maria Ivanova</name>
+    <gender>Female</gender>
+    <birth-date>2000-01-08</birth-date>
+    <email>mimeto.e.rusa@mail.be</email>
+    <university>University of Economics - Varna</university>
+    <specialty>Informatics</specialty>
+    <faculty-number>0019392</faculty-number>
+    <taken-exams>
+      <exam-name>English language</exam-name>
+      <date-taken>2019-09-13</date-taken>
+      <grade>3</grade>
+    </taken-exams>
+  </students:student>
+  <students:student>
+    <name>Gergana Gergova</name>
+    <gender>Female</gender>
+    <birth-date>1987-09-15</birth-date>
+    <email>gerito.gerito@izvesten.mail</email>
+    <university>Sofia University</university>
+    <specialty>Agrocultures</specialty>
+    <faculty-number>8958494</faculty-number>
+    <taken-exams>
+      <exam-name>Entry Exam</exam-name>
+      <date-taken>2004-05-18</date-taken>
+      <grade>6</grade>
+    </taken-exams>
+  </students:student>
+</students:students>

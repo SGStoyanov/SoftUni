@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:students="http://www.somesite.com/students" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.somesite.com/students" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import />
+  <xs:element name="students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="student">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="name" />
+              <xs:element ref="gender" />
+              <xs:element ref="birth-date" />
+              <xs:element ref="email" />
+              <xs:element ref="university" />
+              <xs:element ref="specialty" />
+              <xs:element ref="faculty-number" />
+              <xs:element ref="taken-exams" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="endorsements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="endorsement">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="author" type="xs:string" />
+              <xs:element name="author-email" type="xs:string" />
+              <xs:element name="endorsement-date" type="xs:date" />
+              <xs:element name="endorsement-text" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
