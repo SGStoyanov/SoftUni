@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Net.Http;
     using System.Security.Claims;
     using System.Security.Cryptography;
@@ -9,6 +10,7 @@
     using System.Web;
     using System.Web.Http;
 
+    using BlogSystemApplication.Data;
     using BlogSystemApplication.Web.Models;
     using BlogSystemApplication.Web.Providers;
     using BlogSystemApplication.Web.Results;
@@ -29,6 +31,12 @@
 
         public AccountController()
         {
+        }
+
+        public AccountController(ApplicationUserManager userManager)
+        {
+            this.UserManager = userManager;
+            this.AccessTokenFormat = this.AccessTokenFormat;
         }
 
         public AccountController(
@@ -73,8 +81,8 @@
         [Route("Logout")]
         public IHttpActionResult Logout()
         {
-            Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-            return Ok();
+            this.Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+            return this.Ok();
         }
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
@@ -123,7 +131,7 @@
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             var result =
@@ -180,7 +188,7 @@
 
             if (externalData == null)
             {
-                return BadRequest("The external login is already associated with an account.");
+                return this.BadRequest("The external login is already associated with an account.");
             }
 
             var result =
@@ -230,7 +238,7 @@
         }
 
         // GET api/Account/ExternalLogin
-        [OverrideAuthentication]
+        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed. Suppression is OK here."),OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
         [Route("ExternalLogin", Name = "ExternalLogin")]
@@ -269,12 +277,13 @@
             {
                 this.Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
 
-                var oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager, OAuthDefaults.AuthenticationType);
+                var oAuthIdentity = await user.GenerateUserIdentityAsync(
+                    this.UserManager, OAuthDefaults.AuthenticationType);
                 var cookieIdentity =
                     await user.GenerateUserIdentityAsync(this.UserManager, CookieAuthenticationDefaults.AuthenticationType);
 
                 var properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
-                Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
+                this.Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
             {
@@ -407,7 +416,7 @@
         {
             if (result == null)
             {
-                return InternalServerError();
+                return this.InternalServerError();
             }
 
             if (!result.Succeeded)
@@ -416,17 +425,17 @@
                 {
                     foreach (string error in result.Errors)
                     {
-                        ModelState.AddModelError("", error);
+                        this.ModelState.AddModelError("", error);
                     }
                 }
 
                 if (ModelState.IsValid)
                 {
                     // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
+                    return this.BadRequest();
                 }
 
-                return BadRequest(ModelState);
+                return this.BadRequest(this.ModelState);
             }
 
             return null;
@@ -434,20 +443,20 @@
 
         private class ExternalLoginData
         {
-            public string LoginProvider { get; set; }
+            public string LoginProvider { get; private set; }
 
-            public string ProviderKey { get; set; }
+            public string ProviderKey { get; private set; }
 
-            public string UserName { get; set; }
+            private string UserName { get; set; }
 
             public IEnumerable<Claim> GetClaims()
             {
                 IList<Claim> claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.NameIdentifier, ProviderKey, null, LoginProvider));
+                claims.Add(new Claim(ClaimTypes.NameIdentifier, this.ProviderKey, null, this.LoginProvider));
 
-                if (UserName != null)
+                if (this.UserName != null)
                 {
-                    claims.Add(new Claim(ClaimTypes.Name, UserName, null, LoginProvider));
+                    claims.Add(new Claim(ClaimTypes.Name, this.UserName, null, this.LoginProvider));
                 }
 
                 return claims;

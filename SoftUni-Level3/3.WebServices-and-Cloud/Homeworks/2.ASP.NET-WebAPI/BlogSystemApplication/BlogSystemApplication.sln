@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSystemApplication.Web", "BlogSystemApplication.Web\BlogSystemApplication.Web.csproj", "{A3120D98-974E-48DC-B73A-3E0C462A67E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSystemApplication.Models", "BlogSystemApplication.Models\BlogSystemApplication.Models.csproj", "{1B114BBE-FD92-4243-B2B2-706DF8C0D60D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSystemApplication.Data", "BlogSystemApplication.Data\BlogSystemApplication.Data.csproj", "{55CD5C54-1767-4C6C-A3CC-25D314361C5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A3120D98-974E-48DC-B73A-3E0C462A67E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3120D98-974E-48DC-B73A-3E0C462A67E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3120D98-974E-48DC-B73A-3E0C462A67E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B114BBE-FD92-4243-B2B2-706DF8C0D60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B114BBE-FD92-4243-B2B2-706DF8C0D60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B114BBE-FD92-4243-B2B2-706DF8C0D60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B114BBE-FD92-4243-B2B2-706DF8C0D60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55CD5C54-1767-4C6C-A3CC-25D314361C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55CD5C54-1767-4C6C-A3CC-25D314361C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55CD5C54-1767-4C6C-A3CC-25D314361C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55CD5C54-1767-4C6C-A3CC-25D314361C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
