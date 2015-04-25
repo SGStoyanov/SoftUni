@@ -1,0 +1,19 @@
+header.login {
+    background: #eeeeff;
+    padding: 10px;
+    width: 30%;
+}
+
+header.login:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+header.login {
+    float: left;
+}
+
+header.login div.logout {
+    float: right;
+}
