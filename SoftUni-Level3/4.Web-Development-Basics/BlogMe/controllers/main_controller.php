@@ -12,6 +12,4 @@ class Main_Controller {
 
         $this -> layout = DX_ROOT_DIR . '/views/layouts/default.php';
     }
-
-
 }
