@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `blogmedb`.`Posts` (
   `Visits` INT NULL,
   `User_Id` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_Posts_Users1_idx` (`User_Id` ASC),
-  CONSTRAINT `fk_Posts_Users1`
+  INDEX `fk_Posts_Users_idx` (`User_Id` ASC),
+  CONSTRAINT `fk_Posts_Users`
     FOREIGN KEY (`User_Id`)
     REFERENCES `blogmedb`.`Users` (`Id`)
     ON DELETE NO ACTION
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `blogmedb`.`Comments` (
   `Content` VARCHAR(500) NOT NULL,
   `Post_Id` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_Comments_Posts1_idx` (`Post_Id` ASC),
-  CONSTRAINT `fk_Comments_Posts1`
+  INDEX `fk_Comments_Posts_idx` (`Post_Id` ASC),
+  CONSTRAINT `fk_Comments_Posts`
     FOREIGN KEY (`Post_Id`)
     REFERENCES `blogmedb`.`Posts` (`Id`)
     ON DELETE NO ACTION
@@ -88,14 +88,14 @@ CREATE TABLE IF NOT EXISTS `blogmedb`.`Posts_has_Tags` (
   `Post_Id` INT NOT NULL,
   `Tag_Id` INT NOT NULL,
   PRIMARY KEY (`Post_Id`, `Tag_Id`),
-  INDEX `fk_Posts_has_Tags_Tags1_idx` (`Tag_Id` ASC),
+  INDEX `fk_Posts_has_Tags_Tags_idx` (`Tag_Id` ASC),
   INDEX `fk_Posts_has_Tags_Posts_idx` (`Post_Id` ASC),
   CONSTRAINT `fk_Posts_has_Tags_Posts`
     FOREIGN KEY (`Post_Id`)
     REFERENCES `blogmedb`.`Posts` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Posts_has_Tags_Tags1`
+  CONSTRAINT `fk_Posts_has_Tags_Tags`
     FOREIGN KEY (`Tag_Id`)
     REFERENCES `blogmedb`.`Tags` (`Id`)
     ON DELETE NO ACTION

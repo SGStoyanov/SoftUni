@@ -1,0 +1,1 @@
+<h2>Hi, I'm the Posts' view.</h2>

@@ -18,8 +18,8 @@ include_once 'controllers/main_controller.php';
 include_once 'controllers/posts_controller.php';
 include_once 'controllers/comments_controller.php';
 include_once 'controllers/users_controller.php';
-include_once 'models/main.php';
-//include_once 'models/users.php';
+include_once 'models/main_model.php';
+//include_once 'models/users_model.php';
 
 if ( ! empty ( $request ) ) {
     if (strpos( $request, $request_home ) === 0) {
@@ -34,7 +34,7 @@ if ( ! empty ( $request ) ) {
 
                 // TODO: to fix this dynamic adding of controllers and models
                 //include_once 'controllers/' . $controller . '_controller.php';
-                include_once 'models/' . $controller . '.php';
+                //include_once 'models/' . $controller . '_model.php';
             }
         }
     }
