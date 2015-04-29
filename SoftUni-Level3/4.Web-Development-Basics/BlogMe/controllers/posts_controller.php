@@ -5,7 +5,10 @@ namespace Controllers;
 class Posts_Controller extends Main_Controller {
 
     public function __construct() {
-        parent::__construct( get_class(), 'posts', '/views/posts/' );
+        parent::__construct(
+            get_class(),
+            'posts',
+            '/views/posts/' );
     }
 
     public function index() {

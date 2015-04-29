@@ -1,5 +1,6 @@
 <!--TODO: to check for some template or redesign the page-->
-
+<h2>Admin Users View</h2
+<br />
 <table>
     <tr>
         <th>Id</th>

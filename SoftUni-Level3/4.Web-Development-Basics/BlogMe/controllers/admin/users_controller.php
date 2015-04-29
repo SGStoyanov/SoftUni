@@ -1,14 +1,14 @@
 <?php
 
-namespace Controllers;
+namespace Admin\Controllers;
 
-class Users_Controller extends Main_Controller {
+class Users_Controller extends Admin_Controller {
 
     public function __construct() {
         parent::__construct(
             get_class(),
             'users',
-            '/views/users/' );
+            '/views/admin/users/' );
     }
 
     public function index() {
@@ -19,8 +19,6 @@ class Users_Controller extends Main_Controller {
 
     public function view( $id ) {
         $users = $this -> model -> get( $id );
-        //$users = $users[0];
-
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;
     }

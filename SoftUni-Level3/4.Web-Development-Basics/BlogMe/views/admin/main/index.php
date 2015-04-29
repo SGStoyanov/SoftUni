@@ -1,0 +1,1 @@
+<p>Default Admin View</p>
