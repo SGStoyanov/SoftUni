@@ -15,7 +15,6 @@ class Posts_Controller extends Admin_Controller {
         $posts = $this -> model -> listAll();
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
-
         include_once $this -> layout;
     }
 
@@ -23,12 +22,10 @@ class Posts_Controller extends Admin_Controller {
         $posts = $this -> model -> get( $id );
 
         if( empty ( $posts ) ) {
-            //die('No such post exists');
             header( 'Location: ' . DX_URL );
         }
 
         $posts = $posts[0];
-//        pr($posts);
 
         $user_id = $posts['User_Id'];
         include DX_ROOT_DIR . '/models/users_model.php';
@@ -38,7 +35,6 @@ class Posts_Controller extends Admin_Controller {
         $user = $users[0];
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'view.php';
-
         include_once $this -> layout;
     }
 
@@ -58,7 +54,6 @@ class Posts_Controller extends Admin_Controller {
         }
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'add.php';
-
         include_once $this -> layout;
     }
 
@@ -66,11 +61,10 @@ class Posts_Controller extends Admin_Controller {
         $post = $this -> model -> get( $id );
 
         if( empty( $post ) ) {
-            die( 'Nothing to edit here' );
+            header( 'Location: ' . DX_ROOT_DIR . $this -> views_dir . 'index.php');
         }
 
         $post = $post[0];
-        //pr($post);
 
         if( ! empty( $_POST['title'] ) && ! empty( $_POST['content'] ) && ! empty( $_POST['id'] ) ) {
             $title = $_POST['title'];
@@ -85,13 +79,21 @@ class Posts_Controller extends Admin_Controller {
                 'User_Id' => $user_id
             );
 
-            //pr($post);
-
             $this -> model -> update( $post );
         }
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'edit.php';
-
         include_once $this -> layout;
+    }
+
+    public function delete( $id ) {
+        $post = $this -> model -> get( $id );
+
+        if( ! empty ( $post ) ) {
+            $post = $post[0];
+            $this -> model -> delete( $post );
+        }
+
+        $this -> index();
     }
 }

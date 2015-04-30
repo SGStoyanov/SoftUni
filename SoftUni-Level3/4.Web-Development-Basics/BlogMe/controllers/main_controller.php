@@ -8,7 +8,6 @@ class Main_Controller {
     protected $model = null;
     protected $views_dir;
     protected $layout = 'default.php';
-    //protected $layout;
     protected $logged_user = array();
 
     public function __construct(
@@ -27,7 +26,6 @@ class Main_Controller {
 
         $auth = \Lib\Auth::get_instance();
         $logged_user = $auth -> get_logged_user();
-        //pr($logged_user);
         $this -> logged_user = $logged_user;
 
         $this -> layout = DX_ROOT_DIR . '/views/layouts/default.php';

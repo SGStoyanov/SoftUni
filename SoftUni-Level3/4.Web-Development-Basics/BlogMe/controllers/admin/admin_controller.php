@@ -15,14 +15,18 @@ class Admin_Controller extends Main_Controller {
         $views_dir = 'views/admin/main'
     )
     {
-        parent::__construct( $class_name, $model, $views_dir);
+        parent::__construct(
+            $class_name,
+            $model,
+            $views_dir );
 
-        $auth = \Lib\Auth::get_instance();
-        $logged_user = $auth -> get_logged_user();
+        //$auth = \Lib\Auth::get_instance();
+        //$logged_user = $auth -> get_logged_user();
+        $logged_in = \Lib\Auth::get_instance() -> is_logged_in();
 
-        if( empty ( $logged_user ) ) {
-            die( 'No access here!');
-            // TODO: to perform redirect
+        if( ! $logged_in ) {
+            header( 'Location: ' . DX_URL );
+            exit();
         }
     }
 }

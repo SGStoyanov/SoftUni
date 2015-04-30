@@ -5,7 +5,11 @@
     </p>
     <p>
         <label for="content">Content: </label>
-        <input type="text" name="content" />
+        <textarea id="post-content-textbox" name="content"></textarea>
+    </p>
+    <p>
+        <label for="tags">Tags: </label>
+        <input type="text" name="tags" />
     </p>
     <input type="submit" value="Submit" />
 </form>

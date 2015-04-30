@@ -121,6 +121,15 @@ class Main_Model {
         return $this -> dbConn -> affected_rows;
     }
 
+    public function delete( $element ) {
+        $query = "DELETE FROM {$this -> table} ";
+        $query .= "WHERE Id = {$element['Id']}";
+        pr($query);
+        $this -> dbConn -> query( $query );
+
+        return $this -> dbConn -> affected_rows;
+    }
+
     protected function process_results ( $result_set ) {
         $results = array();
 

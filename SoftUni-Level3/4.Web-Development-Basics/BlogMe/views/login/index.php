@@ -12,4 +12,6 @@
         <input type="submit" name="submit" value="Login" />
     </p>
 </form>
-<?php endif; ?>
+<?php else:
+    header('Location' . DX_URL);
+endif; ?>

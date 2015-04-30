@@ -8,7 +8,7 @@ class Auth {
     private static $logged_user = array();
 
     private function __construct() {
-        session_set_cookie_params( 7200, "/");
+        session_set_cookie_params( 7200, "/"); // 2 hours session time
         session_start();
 
         if( ! empty ($_SESSION['username']) ) {
@@ -63,5 +63,9 @@ class Auth {
         }
 
         return false;
+    }
+
+    public function logout() {
+        session_destroy();
     }
 }
