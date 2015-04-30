@@ -8,7 +8,8 @@ class Login_Controller extends Main_Controller {
         parent::__construct(
             get_class(),
             'main',
-            '/views/login/' );
+            '/views/login/'
+        );
     }
 
     public function index() {
@@ -17,7 +18,11 @@ class Login_Controller extends Main_Controller {
         $login_message = '';
         $user = $auth -> get_logged_user();
 
-        if ( empty( $user ) && isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
+        if( $user ) {
+            header('Location: ' . DX_URL . 'admin/posts/index');
+        }
+
+        if( empty( $user ) && isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
 
             $logged_in = $auth -> login( $_POST['username'], $_POST['password'] );
 
@@ -27,7 +32,6 @@ class Login_Controller extends Main_Controller {
                 $login_message = 'Login was successful! Hi ' . $_POST['username'];
 
                 header('Location: ' . DX_URL . 'admin/posts/index');
-                echo $login_message;
             }
         }
 

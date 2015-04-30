@@ -19,6 +19,11 @@ class Auth {
                 'username' => $_SESSION['username']
             );
         }
+
+        $this -> table = 'users';
+
+        $db_object = \Lib\Database::get_instance();
+        $this -> dbConn = $db_object::get_db();
     }
 
     public static function get_instance() {
@@ -40,10 +45,7 @@ class Auth {
     }
 
     public function login( $username, $password ) {
-        $db_object = \Lib\Database::get_instance();
-        $db = $db_object -> get_db();
-
-        $statement = $db -> prepare (
+        $statement = $this -> dbConn -> prepare (
             "SELECT Id, Username FROM Users " .
             "WHERE Username = ? AND " .
                   "Password = PASSWORD( ? ) LIMIT 1"
@@ -55,7 +57,6 @@ class Auth {
         $result_set = $statement -> get_result();
 
         if( $row = $result_set -> fetch_assoc() ) {
-            //pr($row);
             $_SESSION['user_id'] = $row['Id'];
             $_SESSION['username'] = $row['Username'];
 
@@ -63,6 +64,28 @@ class Auth {
         }
 
         return false;
+    }
+
+    public function register( $element ) {
+        $keys = array_keys( $element );
+        $values = array();
+
+        foreach( $element as $key => $value ) {
+            if( $key === 'Password' ) {
+                $values[] = "PASSWORD('" . $this -> dbConn -> real_escape_string($value) . "')";
+                continue;
+            }
+            $values[] = "'" . $this -> dbConn -> real_escape_string($value) . "'";
+        }
+
+        $keys = implode( $keys, ',' );
+        $values = implode( $values, ',' );
+
+        $query = "INSERT INTO {$this -> table}($keys) VALUES($values)";
+
+        $this -> dbConn -> query( $query );
+
+        return $this -> dbConn -> affected_rows;
     }
 
     public function logout() {

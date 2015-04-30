@@ -1,4 +1,3 @@
-<?php if( empty ($this -> logged_user)): ?>
 <form method="POST">
     <p>
         Username:
@@ -12,6 +11,3 @@
         <input type="submit" name="submit" value="Login" />
     </p>
 </form>
-<?php else:
-    header('Location' . DX_URL);
-endif; ?>

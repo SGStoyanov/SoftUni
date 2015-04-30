@@ -98,6 +98,7 @@ class Main_Model {
         $values = implode( $values, ',' );
 
         $query = "INSERT INTO {$this -> table}($keys) VALUES($values)";
+        //pr($query);
 
         $this -> dbConn -> query( $query );
 
