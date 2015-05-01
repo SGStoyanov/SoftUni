@@ -7,6 +7,8 @@
         <th>Title</th>
         <th>Content</th>
         <th>Visits</th>
+        <th>Date Published</th>
+<!--        <th>Tags</th>-->
         <th>User</th>
     </tr>
     <?php foreach ($posts as $post): ?>
@@ -15,6 +17,8 @@
         <td><?php echo $post['Title'] ?></td>
         <td><?php echo $post['Content'] ?></td>
         <td><?php echo $post['Visits'] ?></td>
+        <td><?php echo $post['Date_Published'] ?></td>
+
         <td><?php echo $post['User_Id'] ?></td>
     </tr>
     <?php endforeach; ?>

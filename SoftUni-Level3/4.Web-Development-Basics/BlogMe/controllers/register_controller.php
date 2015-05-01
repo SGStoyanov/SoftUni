@@ -4,6 +4,8 @@ namespace Controllers;
 
 class Register_Controller extends Main_Controller {
 
+    const register_not_possible = -1;
+
     public function __construct() {
         parent::__construct(
             get_class(),
@@ -30,7 +32,7 @@ class Register_Controller extends Main_Controller {
         ) {
             
             if( $_POST['password'] !== $_POST['passwordConfirmed'] ) {
-                $register_message = 'Passwords mismatch. Try again to enter your password and confirm it!';
+                $register_message = 'Passwords mismatch!';
             } else {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
@@ -46,7 +48,7 @@ class Register_Controller extends Main_Controller {
 
                 $is_registered = $auth -> register( $user );
 
-                if ( $is_registered === -1 ) {
+                if ( $is_registered === self::register_not_possible ) {
                     $register_message = 'Register not successful. Try again!';
                     echo $register_message;
                 } else {
@@ -59,8 +61,9 @@ class Register_Controller extends Main_Controller {
                 }
             }
 
-
         }
+
+        echo $register_message;
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;

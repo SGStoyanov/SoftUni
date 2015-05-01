@@ -63,7 +63,7 @@ class Main_Model {
             'table' => $this -> table,
             'where' => '',
             'columns' => '*',
-            'limit' => 0
+            'limit' => 100
         ), $args );
 
         extract( $args );
@@ -82,7 +82,7 @@ class Main_Model {
         $result_set = $this -> dbConn -> query( $query );
 
         $results = $this -> process_results( $result_set );
-
+//        pr($results);
         return $results;
     }
 

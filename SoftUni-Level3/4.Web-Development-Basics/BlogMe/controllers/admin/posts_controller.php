@@ -39,14 +39,19 @@ class Posts_Controller extends Admin_Controller {
     }
 
     public function add() {
-        if( ! empty ($_POST['title']) && ! empty ($_POST['content']) ) {
+        if( ! empty ( $_POST['title'] ) &&
+            ! empty ( $_POST['content'] ) &&
+            ! empty( $_POST['tags'] )
+        ) {
             $title = $_POST['title'];
             $content = $_POST['content'];
+            $tags = $_POST['tags'];
             $user_id = $this -> logged_user['id'];
 
             $post = array(
                 'title' => $title,
                 'content' => $content,
+                'tags' => $tags,
                 'user_id' => $user_id
             );
 
