@@ -11,11 +11,10 @@ class Main_Model {
     protected $dbConn;
 
     public function __construct( $args = array() ) {
-        //echo 'Hello from Main Model';
         $args = array_merge( array(
             'where' => '',
             'columns' => '*',
-            'limit' => 0
+            'limit' => 100
         ), $args );
 
         if ( ! isset( $args['table'] ) ) {
@@ -49,7 +48,7 @@ class Main_Model {
         return $results;
     }
 
-    public function get_by_username ( $username ) {
+    public function get_by_username( $username ) {
         return $this -> listAll(
             array (
                 'columns' => 'Id, Username, FullName, Email' ,
@@ -63,7 +62,8 @@ class Main_Model {
             'table' => $this -> table,
             'where' => '',
             'columns' => '*',
-            'limit' => 100
+            'limit' => array('from' => 0, 'pageSize' => 20),
+            'order_by' => ''
         ), $args );
 
         extract( $args );
@@ -74,15 +74,18 @@ class Main_Model {
             $query .= ' where ' . $where;
         }
 
-        if( ! empty( $limit ) ) {
-            $query .= ' limit ' . $limit;
+        if( ! empty( $order_by ) ) {
+            $query .= ' order by ' . $order_by;
+        } else {
+            $query .= ' order by Id DESC';
         }
 
+        if( ! empty( $limit ) ) {
+            $query .= ' limit ' . $limit['from'] . ', ' . $limit['pageSize'];
+        }
 
         $result_set = $this -> dbConn -> query( $query );
-
         $results = $this -> process_results( $result_set );
-//        pr($results);
         return $results;
     }
 
@@ -125,13 +128,13 @@ class Main_Model {
     public function delete( $element ) {
         $query = "DELETE FROM {$this -> table} ";
         $query .= "WHERE Id = {$element['Id']}";
-        pr($query);
+//        pr($query);
         $this -> dbConn -> query( $query );
 
-        return $this -> dbConn -> affected_rows;
+        return $this -> dbConn -> affected_rows > 0;
     }
 
-    protected function process_results ( $result_set ) {
+    protected function process_results( $result_set ) {
         $results = array();
 
         if( ! empty ( $result_set ) && $result_set -> num_rows > 0 ) {

@@ -27,6 +27,7 @@ class Login_Controller extends Main_Controller {
             $logged_in = $auth -> login( $_POST['username'], $_POST['password'] );
 
             if ( ! $logged_in ) {
+                // TODO: to fix the response message on login
                 $login_message = 'Login not successful. Try again!';
             } else {
                 $login_message = 'Login was successful! Hi ' . $_POST['username'];

@@ -12,7 +12,17 @@ class Posts_Controller extends Admin_Controller {
     }
 
     public function index() {
+        //var_dump('Page: ' . $page);
         $posts = $this -> model -> listAll();
+
+        include DX_ROOT_DIR . '/models/tags_model.php';
+        $tags_model = new \Models\Tags_Model();
+
+        $tags = array();
+        foreach($posts as $post) {
+            $post_id = $post['Id'];
+            $tags[$post_id] = $tags_model -> tags_for_post( $post_id );
+        }
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;
@@ -56,6 +66,7 @@ class Posts_Controller extends Admin_Controller {
             );
 
             $this -> model -> add( $post );
+            $this -> redirect($isAdminRedirect = true, 'posts');
         }
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'add.php';
@@ -72,6 +83,7 @@ class Posts_Controller extends Admin_Controller {
         $post = $post[0];
 
         if( ! empty( $_POST['title'] ) && ! empty( $_POST['content'] ) && ! empty( $_POST['id'] ) ) {
+
             $title = $_POST['title'];
             $content = $_POST['content'];
             $post_id = $_POST['id'];

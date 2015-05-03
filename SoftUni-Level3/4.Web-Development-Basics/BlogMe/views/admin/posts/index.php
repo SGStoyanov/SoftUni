@@ -8,18 +8,26 @@
         <th>Content</th>
         <th>Visits</th>
         <th>Date Published</th>
-<!--        <th>Tags</th>-->
         <th>User</th>
+        <th>Tags</th>
     </tr>
     <?php foreach ($posts as $post): ?>
     <tr>
-        <td><?php echo $post['Id'] ?></td>
-        <td><?php echo $post['Title'] ?></td>
-        <td><?php echo $post['Content'] ?></td>
-        <td><?php echo $post['Visits'] ?></td>
-        <td><?php echo $post['Date_Published'] ?></td>
-
-        <td><?php echo $post['User_Id'] ?></td>
-    </tr>
+        <td><?php echo htmlspecialchars( $post['Id'] ) ?></td>
+        <td><?php echo htmlspecialchars( $post['Title'] ) ?></td>
+        <td><?php echo htmlspecialchars( $post['Content'] ) ?></td>
+        <td><?php echo htmlspecialchars( $post['Visits'] ) ?></td>
+        <td><?php echo htmlspecialchars( $post['Date_Published'] ) ?></td>
+        <td><?php echo htmlspecialchars( $post['User_Id'] ) ?></td>
+        <td>
+            <?php
+                foreach( $tags[$post['Id']] as $tag_array ) {
+                    foreach( $tag_array as $tag ) {
+                        echo htmlspecialchars( "$tag " );
+                    }
+                }
+            ?>
+        </td>
     <?php endforeach; ?>
+    </tr>
 </table>

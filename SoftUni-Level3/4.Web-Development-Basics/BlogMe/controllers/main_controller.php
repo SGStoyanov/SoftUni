@@ -33,7 +33,51 @@ class Main_Controller {
 
     public function index() {
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
-
         include_once $this -> layout;
     }
+
+    public function redirectToUrl( $url ) {
+        header("Location: " . $url);
+        die;
+    }
+
+    public function redirect($isAdminRedirect, $controllerName, $actionName = null, $params = null) {
+        $url = DX_URL;
+
+        if( $isAdminRedirect ) {
+            $url .= 'admin/';
+        }
+
+        $url .=  urlencode( $controllerName );
+
+        if( $actionName != null ) {
+            $url .= '/' . urlencode( $actionName );
+        } else {
+            $url .= '/index';
+        }
+
+        if( $params != null ) {
+            $encodedParams = array_map($params, 'urlencode');
+            $url .= implode( '/', $encodedParams );
+        }
+
+        $this -> redirectToUrl( $url );
+    }
+
+    private function addMessage($msg, $type) {
+        if( ! isset($_SESSION['messages']) ) {
+            $_SESSION['messages'] = array();
+        }
+
+        array_push($_SESSION['messages'], array('text' => $msg, 'type' => $type));
+    }
+
+    public function addInfoMessage($msg) {
+        $this -> addMessage($msg, 'info');
+    }
+
+    public function addErrorMessage($msg) {
+        $this -> addMessage($msg, 'error');
+    }
+
 }

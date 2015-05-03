@@ -33,6 +33,8 @@ class Register_Controller extends Main_Controller {
             
             if( $_POST['password'] !== $_POST['passwordConfirmed'] ) {
                 $register_message = 'Passwords mismatch!';
+                // TODO: if user already exist throw message that the registration is not possible because of that
+                // TODO: the same for emails
             } else {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
@@ -50,10 +52,10 @@ class Register_Controller extends Main_Controller {
 
                 if ( $is_registered === self::register_not_possible ) {
                     $register_message = 'Register not successful. Try again!';
-                    echo $register_message;
+                    //echo $register_message;
                 } else {
                     $register_message = 'Register successful!';
-                    echo $register_message;
+                    //echo $register_message;
 
                     $auth -> login($username, $password);
 

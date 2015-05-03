@@ -11,9 +11,17 @@ class Database {
         $password = DB_PASS;
         $dbName = DB_NAME;
 
-        $db = new \mysqli( $host, $username, $password, $dbName );
+        if( self::$db == null ) {
+            $db = new \mysqli( $host, $username, $password, $dbName );
+            $db -> set_charset("utf8");
 
-        self::$db = $db;
+            if( $db -> connect_error ) {
+                die( 'Can not connect to database' );
+            }
+
+            self::$db = $db;
+        }
+
     }
 
     public static function get_instance() {

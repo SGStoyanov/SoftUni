@@ -3,6 +3,7 @@
     <head lang="en">
         <meta charset="UTF-8">
         <title>BlogMe</title>
+        <link rel="stylesheet" type="text/css" href=<?php echo DX_URL . "content/defaultStyle.css" ?> >
     </head>
     <body>
         <div class="container">
