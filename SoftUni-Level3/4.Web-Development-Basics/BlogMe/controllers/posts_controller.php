@@ -8,7 +8,8 @@ class Posts_Controller extends Main_Controller {
         parent::__construct(
             get_class(),
             'posts',
-            '/views/posts/' );
+            '/views/posts/'
+        );
     }
 
     public function index() {
@@ -37,6 +38,9 @@ class Posts_Controller extends Main_Controller {
 
         $this -> posts = $this -> model ->
             listAll( array( 'limit' => array('from' => $from, 'pageSize' => $pageSize) ) );
+
+        $totalCount = $this -> model -> getCount('posts');
+        $totalCount = $totalCount[0];
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;

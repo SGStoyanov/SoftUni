@@ -1,5 +1,10 @@
 div#filterbar {
     border: 1px solid black;
     margin: 10px;
-    width: 40%;
+    padding: 0.5%;
+    width: 50%;
+}
+
+div#filterbar #filter {
+    float: right;
 }

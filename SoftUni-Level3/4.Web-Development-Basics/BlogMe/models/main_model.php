@@ -86,6 +86,7 @@ class Main_Model {
 
         $result_set = $this -> dbConn -> query( $query );
         $results = $this -> process_results( $result_set );
+
         return $results;
     }
 
@@ -101,11 +102,10 @@ class Main_Model {
         $values = implode( $values, ',' );
 
         $query = "INSERT INTO {$this -> table}($keys) VALUES($values)";
-        //pr($query);
 
         $this -> dbConn -> query( $query );
 
-        return $this -> dbConn -> affected_rows;
+        return $this -> dbConn -> affected_rows > 0;
     }
 
     public function update( $element ) {
@@ -122,13 +122,12 @@ class Main_Model {
 
         $this -> dbConn -> query( $query );
 
-        return $this -> dbConn -> affected_rows;
+        return $this -> dbConn -> affected_row > 0;
     }
 
     public function delete( $element ) {
         $query = "DELETE FROM {$this -> table} ";
         $query .= "WHERE Id = {$element['Id']}";
-//        pr($query);
         $this -> dbConn -> query( $query );
 
         return $this -> dbConn -> affected_rows > 0;
@@ -144,5 +143,17 @@ class Main_Model {
         }
 
         return $results;
+    }
+
+    public function getCount( $table ) {
+        if( $table == '' ) {
+            return false;
+        }
+
+        $statement = $this -> dbConn -> query(
+            "SELECT count(Id) FROM {$table}"
+        );
+
+        return $statement -> fetch_row();
     }
 }

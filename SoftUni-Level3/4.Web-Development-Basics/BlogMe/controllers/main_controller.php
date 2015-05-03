@@ -9,6 +9,8 @@ class Main_Controller {
     protected $views_dir;
     protected $layout = 'default.php';
     protected $logged_user = array();
+    protected $validationErrors;
+    protected $formValues;
 
     public function __construct(
         $class_name = '\Controllers\Main_Controller',
@@ -32,8 +34,7 @@ class Main_Controller {
     }
 
     public function index() {
-        $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
-        include_once $this -> layout;
+        $this -> renderView('index.php');
     }
 
     public function redirectToUrl( $url ) {
@@ -80,4 +81,25 @@ class Main_Controller {
         $this -> addMessage($msg, 'error');
     }
 
+    public function addValidationError($field, $message) {
+        $this -> validationErrors[$field] = $message;
+    }
+
+    public function getValidationError($field) {
+        return $this -> validationErrors[$field];
+    }
+
+    public function addFieldValue($field, $value) {
+        $this -> formValues[$field] = $value;
+    }
+
+    public function getFieldValue($field) {
+        return $this -> formValues[$field];
+    }
+
+    public function renderView($file)
+    {
+        $template_name = DX_ROOT_DIR . $this->views_dir . $file;
+        include_once $this->layout;
+    }
 }

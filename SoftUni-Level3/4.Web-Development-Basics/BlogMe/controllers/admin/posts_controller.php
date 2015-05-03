@@ -58,6 +58,24 @@ class Posts_Controller extends Admin_Controller {
             $tags = $_POST['tags'];
             $user_id = $this -> logged_user['id'];
 
+            if( strlen($title) < 5 || strlen($title) > 150 ) {
+                $this -> addFieldValue('title', $title);
+                $this -> addValidationError('title', 'The title length should be between 5 and 150');
+                return $this -> renderView( 'add.php' );
+            }
+
+            if( strlen($content) < 10 || strlen($content) > 1000) {
+                $this -> addFieldValue('content', $content);
+                $this -> addValidationError('content', 'The content length should be between 10 and 1000');
+                return $this -> renderView( 'add.php');
+            }
+
+            if( strlen($tags) < 2 || strlen($tags) > 150) {
+                $this -> addFieldValue('tags', $tags);
+                $this -> addValidationError('tags', 'The tags length should be between 2 and 150');
+                return $this -> renderView( 'add.php');
+            }
+
             $post = array(
                 'title' => $title,
                 'content' => $content,
@@ -69,8 +87,7 @@ class Posts_Controller extends Admin_Controller {
             $this -> redirect($isAdminRedirect = true, 'posts');
         }
 
-        $template_name = DX_ROOT_DIR . $this -> views_dir . 'add.php';
-        include_once $this -> layout;
+        $this -> renderView( 'add.php' );
     }
 
     public function edit( $id ) {
