@@ -42,6 +42,6 @@ class Posts_Model extends Main_Model {
             $this -> dbConn -> query( $query_posts_has_tags ); // inserting in Posts_has_Tags table
         }
 
-        return $this -> dbConn -> affected_rows;
+        return $this -> dbConn -> affected_rows > 0;
     }
 }

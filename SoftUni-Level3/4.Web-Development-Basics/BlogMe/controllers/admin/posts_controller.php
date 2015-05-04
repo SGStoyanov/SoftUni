@@ -83,8 +83,14 @@ class Posts_Controller extends Admin_Controller {
                 'user_id' => $user_id
             );
 
-            $this -> model -> add( $post );
-            $this -> redirect($isAdminRedirect = true, 'posts');
+            $isPostAdded = $this -> model -> add( $post );
+
+            if( $isPostAdded ) {
+                $this -> addInfoMessage('Post added');
+                $this -> redirect($isAdminRedirect = true, 'posts');
+            }
+
+
         }
 
         $this -> renderView( 'add.php' );

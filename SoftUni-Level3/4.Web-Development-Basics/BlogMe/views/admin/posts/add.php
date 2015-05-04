@@ -4,11 +4,11 @@
         <input type="text" id="title" required name="title"
                value="<?php if( isset( $this -> formValues['title'] ) ) {
                                 echo( $this -> getFieldValue('title') );
-                             }
+                            }
                        ?>"/>
-        <?php if( isset( $this -> validationErrors['title'] ) ) {
-            echo $this -> getValidationError('title');
-        } ?>
+            <?php if( isset( $this -> validationErrors['title'] ) ) {
+                echo $this -> getValidationError('title');
+            } ?>
     </p>
     <p>
         <label for="content">Content: </label>
@@ -17,9 +17,10 @@
                             echo( $this -> getFieldValue('content') );
                          }
                    ?>"/>
-        <?php if( isset( $this -> validationErrors['content'] ) ) {
-            echo  $this -> getValidationError('content');
-        } ?>
+            <?php if( isset( $this -> validationErrors['content'] ) ) {
+                    echo  $this -> getValidationError('content');
+                  }
+            ?>
     </p>
     <p>
         <label for="tags">Tags(separated by comma): </label>
@@ -28,9 +29,10 @@
                                 echo( $this -> getFieldValue('tags') );
                             }
                       ?>"/>
-        <?php if( isset( $this -> validationErrors['tags'] ) ) {
-            echo $this -> getValidationError('tags');
-        } ?>
+            <?php if( isset( $this -> validationErrors['tags'] ) ) {
+                    echo $this -> getValidationError('tags');
+                  }
+            ?>
     </p>
     <input type="submit" value="Submit" />
 </form>
