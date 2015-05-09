@@ -80,7 +80,7 @@ class Main_Model {
             $query .= ' order by Id DESC';
         }
 
-        if( ! empty( $limit ) ) {
+        if( ! empty( $limit ) && $limit['pageSize'] < 100 ) {
             $query .= ' limit ' . $limit['from'] . ', ' . $limit['pageSize'];
         }
 
@@ -113,6 +113,7 @@ class Main_Model {
 
         foreach( $element as $key => $value ) {
             if( $key === 'Id' ) continue;
+            if( $key === 'tags') continue;
 
             $query .= "$key = '" . $this -> dbConn -> real_escape_string($value) . "', ";
         }
@@ -122,7 +123,7 @@ class Main_Model {
 
         $this -> dbConn -> query( $query );
 
-        return $this -> dbConn -> affected_row > 0;
+        return $this -> dbConn -> affected_rows > 0;
     }
 
     public function delete( $element ) {

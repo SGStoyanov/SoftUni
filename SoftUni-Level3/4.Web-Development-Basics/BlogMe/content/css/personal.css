@@ -1,0 +1,11 @@
+input#filter {
+    float: right;
+}
+
+a#users-btn, a#logout-btn {
+    float: right;
+}
+
+li.spacer {
+    width: 4%;
+}

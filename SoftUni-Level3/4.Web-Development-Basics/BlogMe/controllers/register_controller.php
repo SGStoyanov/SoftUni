@@ -51,10 +51,10 @@ class Register_Controller extends Main_Controller {
                 $is_registered = $auth -> register( $user );
 
                 if ( $is_registered === self::register_not_possible ) {
-                    $register_message = 'Register not successful. Try again!';
+                    $this -> addErrorMessage('Register not successful. Try again!');
                     //echo $register_message;
                 } else {
-                    $register_message = 'Register successful!';
+                    $this -> addInfoMessage('Register successful!');
                     //echo $register_message;
 
                     $auth -> login($username, $password);
@@ -65,7 +65,7 @@ class Register_Controller extends Main_Controller {
 
         }
 
-        echo $register_message;
+        //echo $register_message;
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;

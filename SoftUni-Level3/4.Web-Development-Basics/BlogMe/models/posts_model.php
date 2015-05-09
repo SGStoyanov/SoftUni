@@ -8,8 +8,40 @@ class Posts_Model extends Main_Model {
         parent::__construct( array( 'table' => 'posts' ) );
     }
 
-    public function add( $element ) {
+    public function listAll( $args = array() ) {
+        $args = array_merge( array(
+            'table' => $this -> table,
+            'where' => '',
+            'columns' => '*',
+            'limit' => array('from' => 0, 'pageSize' => 20),
+            'order_by' => ''
+        ), $args );
 
+        extract( $args );
+
+        $query = "SELECT {$columns} FROM {$table}";
+
+        if( ! empty( $where ) ) {
+            $query .= ' where ' . $where;
+        }
+
+        if( ! empty( $order_by ) ) {
+            $query .= ' order by ' . $order_by;
+        } else {
+            $query .= ' order by Id DESC';
+        }
+
+        if( ! empty( $limit ) && $limit['pageSize'] < 100 ) {
+            $query .= ' limit ' . $limit['from'] . ', ' . $limit['pageSize'];
+        }
+
+        $result_set = $this -> dbConn -> query( $query );
+        $results = $this -> process_results( $result_set );
+
+        return $results;
+    }
+
+    public function add( $element ) {
         $tags_array = explode( ', ', $element['tags'] );
         unset($element['tags']);
         $values_tags = array();
@@ -43,5 +75,17 @@ class Posts_Model extends Main_Model {
         }
 
         return $this -> dbConn -> affected_rows > 0;
+    }
+
+    public function posts_for_tag( $tag_id ) {
+        $query = "SELECT p.Id, p.Title, p.Content, p.Visits, p.Date_Published, p.User_Id FROM Posts AS p ";
+        $query .= "INNER JOIN Posts_has_Tags AS pt ON p.Id = pt.Post_Id ";
+        $query .= "INNER JOIN Tags AS t ON pt.Tag_Id = t.Id ";
+        $query .= "WHERE t.Name = {$tag_id} ";
+        $query .= "LIMIT 100";
+
+        $result_set = $this -> dbConn -> query( $query );
+        $results = $this -> process_results( $result_set );
+        return $results;
     }
 }

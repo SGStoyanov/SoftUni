@@ -1,6 +1,5 @@
 <?php
-if( ! empty($_SESSION['messages']) ) {
-    echo 'Hello from messages php';
+if( isset($_SESSION['messages']) ) {
     echo '<ul>';
     foreach( $_SESSION['messages'] as $message) {
         echo "<li class={$message['type']}>";
@@ -9,6 +8,6 @@ if( ! empty($_SESSION['messages']) ) {
     }
 
     echo '</ul>';
-//    unset($_SESSION['messages']);
+    unset($_SESSION['messages']);
 }
 ?>

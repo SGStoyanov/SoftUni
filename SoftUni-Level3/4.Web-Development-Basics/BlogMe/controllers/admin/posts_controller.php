@@ -4,24 +4,75 @@ namespace Admin\Controllers;
 
 class Posts_Controller extends Admin_Controller {
 
+    private $filtered_by_tag = false;
+    private $commentsModel;
+    private $usersModel;
+    private $tagsModel;
+    protected $comments;
+    protected $authors;
+    protected $tags;
+    protected $posts;
+    protected $post;
+
     public function __construct() {
         parent::__construct(
             get_class(),
             'posts',
             '/views/admin/posts/' );
+
+        include DX_ROOT_DIR . '/models/comments_model.php';
+        $this -> commentsModel = new \Models\Comments_Model();
+
+        include DX_ROOT_DIR . '/models/users_model.php';
+        $this -> usersModel = new \Models\Users_Model();
+
+        include DX_ROOT_DIR . '/models/tags_model.php';
+        $this -> tagsModel = new \Models\Tags_Model();
     }
 
     public function index() {
-        //var_dump('Page: ' . $page);
-        $posts = $this -> model -> listAll();
+        $pageNumber = 1;
+        $pageSize = 20;
 
-        include DX_ROOT_DIR . '/models/tags_model.php';
-        $tags_model = new \Models\Tags_Model();
+        if( isset( $_POST['pageNumber'] ) && strlen( $_POST['pageNumber'] ) > 0 ) {
+            if(intval($_POST['pageNumber']) > 0) {
+                $pageNumber = intval( htmlspecialchars( $_POST['pageNumber'] ) );
+            } else {
+                $pageNumber = 1;
+            }
+        }
 
-        $tags = array();
-        foreach($posts as $post) {
+        if( isset( $_POST['pageSize'] ) && strlen( $_POST['pageSize'] ) > 0 ) {
+            if( intval($_POST['pageSize']) > 0 ) {
+                $pageSize = intval( htmlspecialchars( $_POST['pageSize'] ) );
+            } else {
+                $pageSize = 20;
+            }
+        }
+
+        $from = ($pageNumber - 1) * $pageSize;
+
+        if( ! $this -> filtered_by_tag ) {
+            $this -> posts = $this -> model ->
+            listAll( array( 'limit' => array('from' => $from, 'pageSize' => $pageSize) ) );
+        }
+
+        $totalCount = $this -> model -> getCount('posts');
+        $totalCount = $totalCount[0];
+
+        $this -> comments = array();
+        $this -> authors = array();
+        $this -> tags = array();
+
+        foreach($this -> posts as $post) {
             $post_id = $post['Id'];
-            $tags[$post_id] = $tags_model -> tags_for_post( $post_id );
+            $this -> comments[$post_id] = $this -> commentsModel -> comments_for_post( $post_id );
+            $this -> authors[$post_id] = $this -> usersModel -> get($post['User_Id']);
+            $this -> tags[$post_id] = $this -> tagsModel -> tags_for_post( $post_id );
+        }
+
+        if (! empty($_POST['commenter']) && ! empty( $_POST['commentContent']) ) {
+            $this -> add_comment();
         }
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
@@ -89,8 +140,6 @@ class Posts_Controller extends Admin_Controller {
                 $this -> addInfoMessage('Post added');
                 $this -> redirect($isAdminRedirect = true, 'posts');
             }
-
-
         }
 
         $this -> renderView( 'add.php' );
@@ -103,27 +152,57 @@ class Posts_Controller extends Admin_Controller {
             header( 'Location: ' . DX_ROOT_DIR . $this -> views_dir . 'index.php');
         }
 
-        $post = $post[0];
+        $this -> post = $post[0];
 
-        if( ! empty( $_POST['title'] ) && ! empty( $_POST['content'] ) && ! empty( $_POST['id'] ) ) {
+        $this -> tags = $this -> tagsModel -> tags_for_post( $this -> post['Id'] );;
 
+        if( ! empty ( $_POST['title'] ) &&
+            ! empty ( $_POST['content'] ) &&
+            ! empty( $_POST['tags'] )
+        ) {
             $title = $_POST['title'];
             $content = $_POST['content'];
-            $post_id = $_POST['id'];
+            $tags = $_POST['tags'];
             $user_id = $this -> logged_user['id'];
 
+            if( strlen($title) < 5 || strlen($title) > 150 ) {
+                $this -> addFieldValue('title', $title);
+                $this -> addValidationError('title', 'The title length should be between 5 and 150');
+                return $this -> renderView( 'edit.php' );
+            }
+
+            if( strlen($content) < 10 || strlen($content) > 1000) {
+                $this -> addFieldValue('content', $content);
+                $this -> addValidationError('content', 'The content length should be between 10 and 1000');
+                return $this -> renderView( 'edit.php' );
+            }
+
+            if( strlen($tags) < 2 || strlen($tags) > 150) {
+                $this -> addFieldValue('tags', $tags);
+                $this -> addValidationError('tags', 'The tags length should be between 2 and 150');
+                return $this -> renderView( 'edit.php' );
+            }
+
             $post = array(
-                'Id' => $post_id,
-                'Title' => $title,
-                'Content' => $content,
-                'User_Id' => $user_id
+                'Id' => $this -> post['Id'],
+                'title' => $title,
+                'content' => $content,
+                'tags' => $tags,
+                'user_id' => $user_id
             );
 
-            $this -> model -> update( $post );
+            $isPostEdited = $this -> model -> update( $post );
+
+            if( $isPostEdited ) {
+//                $this -> addInfoMessage('Post added');
+                echo 'Post edited';
+                $this -> redirect($isAdminRedirect = true, 'posts');
+            } else {
+                echo 'There was a problem with the editing of the post';
+            }
         }
 
-        $template_name = DX_ROOT_DIR . $this -> views_dir . 'edit.php';
-        include_once $this -> layout;
+        $this -> renderView( 'edit.php' );
     }
 
     public function delete( $id ) {
@@ -135,5 +214,56 @@ class Posts_Controller extends Admin_Controller {
         }
 
         $this -> index();
+    }
+
+    public function search_by_tag( $tag_name ) {
+        $this -> filtered_by_tag = true;
+        $this -> posts = $this -> model -> posts_for_tag( $tag_name );
+
+        $this -> index();
+    }
+
+    private function add_comment() {
+        $commenter = $_POST['commenter'];
+        $comment = $_POST['commentContent'];
+        $email = '';
+        if( ! empty( $_POST['email'] ) ) {
+            $email = $_POST['email'];
+        }
+
+        $post_id = '';
+        if( ! empty( $_POST['commentPostId'] ) ) {
+            $post_id = $_POST['commentPostId'];
+        }
+
+
+        if( strlen( $commenter ) < 2 || strlen( $commenter ) > 150 ) {
+            $this -> addFieldValue('commenter', $commenter);
+            $this -> addValidationError('commenter', 'The Commenter\'s name length should be between 2 and 150');
+            return $this -> renderView( 'index.php' );
+        }
+
+        if( strlen( $comment ) < 3 || strlen( $comment ) > 500) {
+            $this -> addFieldValue('comment', $comment);
+            $this -> addValidationError('comment', 'The comment length should be between 3 and 500');
+            return $this -> renderView( 'index.php');
+        }
+
+        $comment = array(
+            'commenterName' => $commenter,
+            'content' => $comment,
+            'commenterEmail' => $email,
+            'post_id' => $post_id
+        );
+
+        $isCommentAdded = $this -> commentsModel -> add( $comment );
+
+        if( $isCommentAdded ) {
+            $this -> addInfoMessage('Comment added');
+            $this -> redirect($isAdminRedirect = true, 'posts');
+        }
+
+        $this -> renderView( 'index.php' );
+
     }
 }

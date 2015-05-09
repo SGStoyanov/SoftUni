@@ -1,19 +1,22 @@
-<!--TODO: to check for some template or redesign the page-->
-<h2>Admin Users View</h2
-<br />
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Username</th>
-        <th>FullName</th>
-        <th>Email</th>
-    </tr>
-<?php foreach ($users as $user): ?>
-    <tr>
-        <td><?php echo $user['Id'] ?></td>
-        <td><?php echo $user['Username'] ?></td>
-        <td><?php echo $user['FullName'] ?></td>
-        <td><?php echo $user['Email'] ?></td>
-    </tr>
-<?php endforeach; ?>
-</table>
+<!-- Page Content -->
+<div class="container">
+    <?php foreach ($users as $user) : ?>
+        <div class="row">
+            <div class="col-lg-2"></div>
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+                <div class="well">
+                    <p>Id: <?php echo htmlspecialchars($user['Id']); ?></p>
+                    <p>Username: <?php echo htmlspecialchars($user['Username']); ?></p>
+                    <p>Full Name: <?php echo htmlspecialchars($user['FullName']); ?></p>
+                    <p>Email: <?php echo htmlspecialchars($user['Email']); ?></p>
+                </div>
+            </div>
+
+            <div class="col-md-4"></div>
+        </div>
+    <?php endforeach; ?>
+    <!-- /.row -->
+
+    <hr>

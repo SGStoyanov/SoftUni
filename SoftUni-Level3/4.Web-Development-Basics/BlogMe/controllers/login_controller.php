@@ -4,6 +4,8 @@ namespace Controllers;
 
 class Login_Controller extends Main_Controller {
 
+    protected $login_message;
+
     public function __construct() {
         parent::__construct(
             get_class(),
@@ -15,7 +17,7 @@ class Login_Controller extends Main_Controller {
     public function index() {
         $auth = \Lib\Auth::get_instance();
 
-        $login_message = '';
+        $this -> login_message = '';
         $user = $auth -> get_logged_user();
 
         if( $user ) {
@@ -26,17 +28,18 @@ class Login_Controller extends Main_Controller {
 
             $logged_in = $auth -> login( $_POST['username'], $_POST['password'] );
 
-            if ( ! $logged_in ) {
+            if( ! $logged_in ) {
                 // TODO: to fix the response message on login
-                $login_message = 'Login not successful. Try again!';
-            } else {
-                $login_message = 'Login was successful! Hi ' . $_POST['username'];
+                $this -> login_message = 'Login not successful. Try again!';
+//                $this -> addErrorMessage('Login not successful. Try again!');
+//                $this -> renderMessage();
 
+            } else {
                 header('Location: ' . DX_URL . 'admin/posts/index');
             }
         }
 
-        echo $login_message;
+//        echo $this -> login_message;
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;
