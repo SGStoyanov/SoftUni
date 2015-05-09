@@ -1,7 +1,5 @@
 <br />
 <br />
-<br />
-
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
@@ -22,8 +20,7 @@
                 <label for="email">Email: </label>
                 <input type="text" id="email" required name="email" class="form-control" />
                 <br />
-                <br />
-                <input type="submit" name="submit" value="Register" class="form-control" />
+                <input type="submit" name="submit" value="Register" class="btn btn-default" />
             </form>
         </div>
     </div>

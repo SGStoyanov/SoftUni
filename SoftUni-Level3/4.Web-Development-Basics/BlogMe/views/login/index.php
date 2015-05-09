@@ -1,3 +1,5 @@
+<br />
+<br />
 <div class="row">
     <div class="col-lg-4"></div>
     <div class="col-lg-4">
@@ -13,6 +15,7 @@
             <form method="POST">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control" />
+                <br />
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" />
                 <br />
