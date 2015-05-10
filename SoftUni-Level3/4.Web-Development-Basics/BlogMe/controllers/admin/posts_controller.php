@@ -15,6 +15,7 @@ class Posts_Controller extends Admin_Controller {
     protected $post;
 
     protected $editing_message;
+    protected $deletion_message;
 
     public function __construct() {
         parent::__construct(
@@ -197,15 +198,25 @@ class Posts_Controller extends Admin_Controller {
                 'user_id' => $user_id
             );
 
-            $isPostEdited = $this -> model -> update( $post );
+            $isPostEdited = false;
+
+            if( ! empty ( $post ) ) {
+                $loggedUser = $this -> logged_user;
+                $loggedUser = $loggedUser['id'];
+                $deletionUser = $this -> usersModel -> get($post['User_Id'] );
+                $deletionUser = intval($deletionUser[0]['Id']);
+
+                if( $loggedUser !== $deletionUser) {
+                    $this -> editing_message = 'Only the Post Authors can edit their posts.';
+                } else {
+                    $isPostEdited = $this -> model -> update( $post );
+                }
+            }
 
             if( $isPostEdited ) {
-//                $this -> addInfoMessage('Post added');
-//                echo 'Post edited';
                 $this -> redirect($isAdminRedirect = true, 'posts');
-                $this -> editing_message = 'Post edited';
+                $this -> editing_message = 'Post edited successfully';
             } else {
-//                echo 'There was a problem with the editing of the post';
                 $this -> editing_message = 'There was a problem with the editing of the post';
             }
         }
@@ -213,12 +224,23 @@ class Posts_Controller extends Admin_Controller {
         $this -> renderView( 'edit.php' );
     }
 
-    public function delete( $id ) {
-        $post = $this -> model -> get( $id );
+    public function delete( $post_id ) {
+        $post = $this -> model -> get( $post_id );
 
         if( ! empty ( $post ) ) {
             $post = $post[0];
-            $this -> model -> delete( $post );
+
+            $loggedUser = $this -> logged_user;
+            $loggedUser = $loggedUser['id'];
+            $deletionUser = $this -> usersModel -> get($post['User_Id'] );
+            $deletionUser = intval($deletionUser[0]['Id']);
+
+            if( $loggedUser !== $deletionUser) {
+                $this -> deletion_message = 'Only the Post Authors can delete their posts.';
+            } else {
+                $this -> model -> delete( $post );
+                $this -> deletion_message = 'Post deleted successfully';
+            }
         }
 
         $this -> index();

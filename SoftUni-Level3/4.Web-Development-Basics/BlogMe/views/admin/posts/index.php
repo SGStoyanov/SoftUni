@@ -1,5 +1,15 @@
 <div class="container">
 
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <?php if( ! empty($this -> deletion_message) ): ?>
+                <div class="alert alert-danger error" role="alert"><?php echo $this -> deletion_message ?></div>
+                <?php $this -> deletion_message = ''; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+
     <?php foreach ($this -> posts as $post) : ?>
         <div class="row">
 
