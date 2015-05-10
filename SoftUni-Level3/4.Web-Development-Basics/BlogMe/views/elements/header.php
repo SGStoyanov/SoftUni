@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
         <!-- Custom CSS -->
-        <link href="<?php echo DX_URL ?>/content/css/blog-post.css" rel="stylesheet">
-        <link href="<?php echo DX_URL ?>/content/css/personal.css" rel="stylesheet">
+        <link href="<?php echo DX_URL ?>content/css/blog-post.css" rel="stylesheet">
+        <link href="<?php echo DX_URL ?>content/css/personal.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -17,7 +17,8 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -47,9 +48,6 @@
                                 </li>
                                 <li>
                                     <a href="<?php echo DX_URL ?>admin/users/index">Users(Admin)</a>
-                                </li>
-                                <li class="spacer" >
-                                    <a href="<?php echo DX_URL ?>posts/"></a>
                                 </li>
                                 <li>
                                     <a id="users-btn" href="<?php

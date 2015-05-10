@@ -17,7 +17,7 @@ class Main_Model {
             'limit' => 100
         ), $args );
 
-        if ( ! isset( $args['table'] ) ) {
+        if( ! isset( $args['table'] ) ) {
             die( 'Table not defined.' );
         }
 
@@ -28,7 +28,7 @@ class Main_Model {
         $this -> columns = $columns;
         $this -> limit = $limit;
 
-        $db_object = \Lib\Database::get_instance();
+        $db_object = \Config\Database::get_instance();
         $this -> dbConn = $db_object::get_db();
     }
 
@@ -48,14 +48,14 @@ class Main_Model {
         return $results;
     }
 
-    public function get_by_username( $username ) {
-        return $this -> listAll(
-            array (
-                'columns' => 'Id, Username, FullName, Email' ,
-                'where' => "Username = '" . $username . "'"
-            )
-        );
-    }
+//    public function get_by_username( $username ) {
+//        return $this -> listAll(
+//            array (
+//                'columns' => 'Id, Username, FullName, Email' ,
+//                'where' => "Username = '" . $username . "'"
+//            )
+//        );
+//    }
 
     public function listAll( $args = array() ) {
         $args = array_merge( array(

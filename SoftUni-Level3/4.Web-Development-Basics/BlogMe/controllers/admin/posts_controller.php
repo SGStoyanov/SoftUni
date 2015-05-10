@@ -14,6 +14,8 @@ class Posts_Controller extends Admin_Controller {
     protected $posts;
     protected $post;
 
+    protected $editing_message;
+
     public function __construct() {
         parent::__construct(
             get_class(),
@@ -105,7 +107,11 @@ class Posts_Controller extends Admin_Controller {
             ! empty( $_POST['tags'] )
         ) {
             $title = $_POST['title'];
-            $content = $_POST['content'];
+            $content = explode( PHP_EOL, $_POST['content'] );
+//            var_dump($content);
+            $content = implode( "\n", $content );
+//            var_dump($content);
+//            $content = $_POST['content'];
             $tags = $_POST['tags'];
             $user_id = $this -> logged_user['id'];
 
@@ -115,9 +121,9 @@ class Posts_Controller extends Admin_Controller {
                 return $this -> renderView( 'add.php' );
             }
 
-            if( strlen($content) < 10 || strlen($content) > 1000) {
+            if( strlen($content) < 10 || strlen($content) > 3000) {
                 $this -> addFieldValue('content', $content);
-                $this -> addValidationError('content', 'The content length should be between 10 and 1000');
+                $this -> addValidationError('content', 'The content length should be between 10 and 3000');
                 return $this -> renderView( 'add.php');
             }
 
@@ -171,9 +177,9 @@ class Posts_Controller extends Admin_Controller {
                 return $this -> renderView( 'edit.php' );
             }
 
-            if( strlen($content) < 10 || strlen($content) > 1000) {
+            if( strlen($content) < 10 || strlen($content) > 3000) {
                 $this -> addFieldValue('content', $content);
-                $this -> addValidationError('content', 'The content length should be between 10 and 1000');
+                $this -> addValidationError('content', 'The content length should be between 10 and 3000');
                 return $this -> renderView( 'edit.php' );
             }
 
@@ -195,10 +201,12 @@ class Posts_Controller extends Admin_Controller {
 
             if( $isPostEdited ) {
 //                $this -> addInfoMessage('Post added');
-                echo 'Post edited';
+//                echo 'Post edited';
                 $this -> redirect($isAdminRedirect = true, 'posts');
+                $this -> editing_message = 'Post edited';
             } else {
-                echo 'There was a problem with the editing of the post';
+//                echo 'There was a problem with the editing of the post';
+                $this -> editing_message = 'There was a problem with the editing of the post';
             }
         }
 
@@ -216,9 +224,9 @@ class Posts_Controller extends Admin_Controller {
         $this -> index();
     }
 
-    public function search_by_tag( $tag_name ) {
+    public function search_by_tag( $tag_id ) {
         $this -> filtered_by_tag = true;
-        $this -> posts = $this -> model -> posts_for_tag( $tag_name );
+        $this -> posts = $this -> model -> posts_for_tag( $tag_id );
 
         $this -> index();
     }
@@ -264,6 +272,5 @@ class Posts_Controller extends Admin_Controller {
         }
 
         $this -> renderView( 'index.php' );
-
     }
 }

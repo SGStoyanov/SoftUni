@@ -79,6 +79,7 @@ class Posts_Controller extends Main_Controller {
             $commenter = $_POST['commenter'];
             $comment = $_POST['commentContent'];
             $email = '';
+
             if( ! empty( $_POST['email'] ) ) {
                 $email = $_POST['email'];
             }
@@ -87,7 +88,6 @@ class Posts_Controller extends Main_Controller {
             if( ! empty( $_POST['commentPostId'] ) ) {
                 $post_id = $_POST['commentPostId'];
             }
-
 
             if( strlen( $commenter ) < 2 || strlen( $commenter ) > 150 ) {
                 $this -> addFieldValue('commenter', $commenter);

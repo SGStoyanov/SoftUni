@@ -1,8 +1,11 @@
 <?php
 
+use Config\Database;
+
 define( 'DX_ROOT_DIR', dirname( __FILE__ ) . '/' ); // full path
 define( 'DX_ROOT_PATH', basename ( dirname( __FILE__) ) . '/' ); // BlogMe
-define( 'DX_URL', 'http://localhost:89/blogme/' ); // constant url base // TODO: to change this url port
+define( 'DX_URL', 'http://stoyanstoyanov.eu/blogme/' ); // constant url base
+//define( 'DX_URL', 'http://localhost:89/blogme/' );
 
 $request = $_SERVER['REQUEST_URI'];
 $request_home = strtolower('/' . DX_ROOT_PATH);
@@ -14,12 +17,10 @@ $admin_routing = false;
 $params = array();
 
 include_once 'config/db_params.php';
-include_once 'lib/database.php';
-include_once 'lib/auth.php';
+include_once 'config/database.php';
+include_once 'config/auth.php';
 include_once 'controllers/main_controller.php';
 include_once 'models/main_model.php';
-
-
 
 if( ! empty ( $request ) ) {
     if ( strpos( $request, $request_home ) === 0 ) {
@@ -41,8 +42,6 @@ if( ! empty ( $request ) ) {
             }
 
             $params = isset( $components[2] ) ? $components[2] : array();
-//            $params = isset( $components[3] ) ? array_splice( $components, 2 ) : array();
-//            var_dump($params);
 
             $admin_folder = $admin_routing ? 'admin/' : '';
 
@@ -63,13 +62,5 @@ if( method_exists( $instance, $method ) ) {
     die( 'No such method' );
 }
 
-$db_object = \Lib\Database::get_instance();
+$db_object = Database::get_instance();
 $db_connection = $db_object::get_db();
-
-
-function pr($data)
-{
-    echo "<pre>";
-    var_dump($data); // or var_dump($data);
-    echo "</pre>";
-}

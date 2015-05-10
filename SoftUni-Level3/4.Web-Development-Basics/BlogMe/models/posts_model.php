@@ -65,23 +65,32 @@ class Posts_Model extends Main_Model {
         $post_id = $this -> dbConn -> insert_id;
 
         foreach( $values_tags as $tag_key => $tag_value ) {
-
-            $query_tags = "INSERT INTO Tags(Name) VALUES($tag_value)";
+            $query_tags = "INSERT INTO tags(Name) VALUES($tag_value)";
             $this -> dbConn -> query( $query_tags ); // inserting tags
 
+            if( $this -> dbConn -> affected_rows <= 0 ) {
+                echo 'There was problem with the inserting in the tags table';
+                return false;
+            }
+
             $tag_id = $this -> dbConn -> insert_id;
-            $query_posts_has_tags = "INSERT INTO Posts_has_Tags(Post_Id, Tag_Id) VALUES($post_id, $tag_id)";
-            $this -> dbConn -> query( $query_posts_has_tags ); // inserting in Posts_has_Tags table
+            $query_posts_has_tags = "INSERT INTO posts_has_tags(Post_Id, Tag_Id) VALUES($post_id, $tag_id)";
+            $this -> dbConn -> query( $query_posts_has_tags ); // inserting in posts_has_tags table
+
+            if( $this -> dbConn -> affected_rows <= 0 ) {
+                echo 'There was problem with the inserting in the posts_has_tags table';
+                return false;
+            }
         }
 
         return $this -> dbConn -> affected_rows > 0;
     }
 
     public function posts_for_tag( $tag_id ) {
-        $query = "SELECT p.Id, p.Title, p.Content, p.Visits, p.Date_Published, p.User_Id FROM Posts AS p ";
-        $query .= "INNER JOIN Posts_has_Tags AS pt ON p.Id = pt.Post_Id ";
-        $query .= "INNER JOIN Tags AS t ON pt.Tag_Id = t.Id ";
-        $query .= "WHERE t.Name = {$tag_id} ";
+        $query = "SELECT p.Id, p.Title, p.Content, p.Visits, p.Date_Published, p.User_Id FROM posts AS p ";
+        $query .= "INNER JOIN posts_has_tags AS pt ON p.Id = pt.Post_Id ";
+        $query .= "INNER JOIN tags AS t ON pt.Tag_Id = t.Id ";
+        $query .= "WHERE t.Id = {$tag_id} ";
         $query .= "LIMIT 100";
 
         $result_set = $this -> dbConn -> query( $query );

@@ -29,8 +29,8 @@ class Comments_Model extends Main_Model {
 
     public function comments_for_post( $post_id ) {
 
-        $query = "SELECT c.CommenterName, c.CommenterEmail, c.Content, c.Date_Commented FROM Comments AS c ";
-        $query .= "INNER JOIN Posts AS p ON c.Post_Id = p.Id ";
+        $query = "SELECT c.CommenterName, c.CommenterEmail, c.Content, c.Date_Commented FROM comments AS c ";
+        $query .= "INNER JOIN posts AS p ON c.Post_Id = p.Id ";
         $query .= "WHERE c.Post_Id = {$post_id} ";
         $query .= "LIMIT 20";
 

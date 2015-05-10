@@ -51,11 +51,16 @@
 
                 <!-- Post Content -->
                 <div class="well">
-                    <h4><?php echo htmlspecialchars($post['Content']); ?></h4>
+                    <p><?php echo htmlspecialchars($post['Content']); ?></p>
                 </div>
 
                 <hr>
-                <a class="btn btn-default" href="<?php echo DX_URL ?>admin/posts/edit/<?php echo $post['Id'] ?>">Edit Post</a>
+                <a class="btn btn-default" href="<?php echo DX_URL ?>admin/posts/edit/<?php echo $post['Id'] ?>">
+                    Edit Post
+                </a>
+                <a class="btn btn-default" href="<?php echo DX_URL ?>admin/posts/delete/<?php echo $post['Id'] ?>">
+                    Delete Post
+                </a>
 
                 <hr>
 
@@ -109,7 +114,7 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-
+                <hr>
             </div>
         </div>
     <?php endforeach; ?>
@@ -117,4 +122,25 @@
 
     <hr>
 
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="panel panel-default" id="filterbar">
+                <div class="panel-heading">Paging:</div>
+                <div class="panel-body">
+                    <form method="post">
+                        <label for="pageNumber">Page Number: </label>
+                        <input type="pageNumber" id="pageNumber" name="pageNumber"
+                               value="<?php echo htmlspecialchars($pageNumber); ?>" />
+                        <label for="pageSize">Page Size: </label>
+                        <input type="pageSize" id="pageSize" name="pageSize"
+                               value="<?php echo htmlspecialchars($pageSize); ?>" />
+                        <?php echo 'Total Posts: ' . htmlspecialchars($totalCount); ?>
+                        <input type="submit" id="filter" value="Filter" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
     <?php include_once '/views/elements/filterbar.php'; ?>

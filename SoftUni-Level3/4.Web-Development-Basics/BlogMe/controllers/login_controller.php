@@ -15,7 +15,7 @@ class Login_Controller extends Main_Controller {
     }
 
     public function index() {
-        $auth = \Lib\Auth::get_instance();
+        $auth = \Config\Auth::get_instance();
 
         $this -> login_message = '';
         $user = $auth -> get_logged_user();
@@ -29,30 +29,24 @@ class Login_Controller extends Main_Controller {
             $logged_in = $auth -> login( $_POST['username'], $_POST['password'] );
 
             if( ! $logged_in ) {
-                // TODO: to fix the response message on login
                 $this -> login_message = 'Login not successful. Try again!';
-//                $this -> addErrorMessage('Login not successful. Try again!');
-//                $this -> renderMessage();
-
             } else {
                 header('Location: ' . DX_URL . 'admin/posts/index');
             }
         }
 
-//        echo $this -> login_message;
+        //echo $this -> login_message;
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;
     }
 
     public function logout() {
-        // TODO: to implement logout function
-
-        $auth = \Lib\Auth::get_instance();
+        $auth = \Config\Auth::get_instance();
 
         $auth -> logout();
-
-        header( 'Location: ' . DX_URL . '?msg=' . urlencode( base64_encode( "You have been successfully logged out!" ) ) );
-        exit();
+        header('Location: ' . DX_URL . 'posts/index');
+        //header( 'Location: ' . DX_URL . '?msg=' . urlencode( base64_encode( "You have been successfully logged out!" ) ) );
+        //exit();
     }
 }

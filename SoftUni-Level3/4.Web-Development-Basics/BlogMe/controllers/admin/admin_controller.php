@@ -19,7 +19,7 @@ class Admin_Controller extends Main_Controller {
             $model,
             $views_dir );
 
-        $logged_in = \Lib\Auth::get_instance() -> is_logged_in();
+        $logged_in = \Config\Auth::get_instance() -> is_logged_in();
 
         if( ! $logged_in ) {
             header( 'Location: ' . DX_URL );

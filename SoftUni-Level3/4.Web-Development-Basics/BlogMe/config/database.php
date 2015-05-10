@@ -1,6 +1,6 @@
 <?php
 
-namespace Lib;
+namespace Config;
 
 class Database {
     private static $db = null;
@@ -16,6 +16,7 @@ class Database {
             $db -> set_charset("utf8");
 
             if( $db -> connect_error ) {
+                var_dump($db);
                 die( 'Can not connect to database' );
             }
 

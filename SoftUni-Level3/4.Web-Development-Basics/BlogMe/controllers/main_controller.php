@@ -26,7 +26,7 @@ class Main_Controller {
         $this -> model = new $model_class( array( 'table' => 'none' ) );
         // \Models\Main_Model
 
-        $auth = \Lib\Auth::get_instance();
+        $auth = \Config\Auth::get_instance();
         $logged_user = $auth -> get_logged_user();
         $this -> logged_user = $logged_user;
 
@@ -97,9 +97,8 @@ class Main_Controller {
         return $this -> formValues[$field];
     }
 
-    public function renderView($file)
-    {
-        $template_name = DX_ROOT_DIR . $this->views_dir . $file;
-        include_once $this->layout;
+    public function renderView($file) {
+        $template_name = DX_ROOT_DIR . $this -> views_dir . $file;
+        include_once $this -> layout;
     }
 }

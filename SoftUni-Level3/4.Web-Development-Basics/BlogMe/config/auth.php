@@ -1,11 +1,12 @@
 <?php
 
-namespace Lib;
+namespace Config;
 
 class Auth {
 
     private static $is_logged_in = false;
     private static $logged_user = array();
+    protected $dbConn;
 
     private function __construct() {
         session_set_cookie_params( 7200, "/"); // 2 hours session time
@@ -22,7 +23,7 @@ class Auth {
 
         $this -> table = 'users';
 
-        $db_object = \Lib\Database::get_instance();
+        $db_object = Database::get_instance();
         $this -> dbConn = $db_object::get_db();
     }
 
@@ -45,22 +46,32 @@ class Auth {
     }
 
     public function login( $username, $password ) {
-        $statement = $this -> dbConn -> prepare (
-            "SELECT Id, Username FROM Users " .
-            "WHERE Username = ? AND " .
-                  "Password = PASSWORD( ? ) LIMIT 1"
+        $statement = $this -> dbConn -> prepare(
+            "SELECT Id, Username FROM users " .
+            "WHERE Username = ? AND Password = PASSWORD( ? ) LIMIT 1"
         );
 
-        $statement -> bind_param( 'ss', $username, $password );
-        $statement -> execute();
+        if( $statement !== FALSE ) {
+            $statement -> bind_param( "ss", $username, $password );
+            $statement -> execute();
 
-        $result_set = $statement -> get_result();
+            $statement -> bind_result($Id, $Username);
 
-        if( $row = $result_set -> fetch_assoc() ) {
-            $_SESSION['user_id'] = $row['Id'];
-            $_SESSION['username'] = $row['Username'];
+            if( $statement -> fetch() ) {
+                $_SESSION['user_id'] = $Id;
+                $_SESSION['username'] = $Username;
 
-            return true;
+                return true;
+            }
+
+//            $result_set = $statement -> get_result();
+//
+//            if( $row = $result_set -> fetch_assoc() ) {
+//                $_SESSION['user_id'] = $row['Id'];
+//                $_SESSION['username'] = $row['Username'];
+//
+//                return true;
+//            }
         }
 
         return false;
@@ -85,7 +96,7 @@ class Auth {
 
         $this -> dbConn -> query( $query );
 
-        return $this -> dbConn -> affected_rows;
+        return $this -> dbConn -> affected_rows > 0;
     }
 
     public function logout() {

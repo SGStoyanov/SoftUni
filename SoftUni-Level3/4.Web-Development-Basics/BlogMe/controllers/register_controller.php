@@ -5,6 +5,7 @@ namespace Controllers;
 class Register_Controller extends Main_Controller {
 
     const register_not_possible = -1;
+    protected $registration_message;
 
     public function __construct() {
         parent::__construct(
@@ -15,9 +16,8 @@ class Register_Controller extends Main_Controller {
     }
     
     public function index() {
-        $auth = \Lib\Auth::get_instance();
+        $auth = \Config\Auth::get_instance();
 
-        $register_message = '';
         $user = $auth -> get_logged_user();
 
         if( $user ) {
@@ -32,9 +32,7 @@ class Register_Controller extends Main_Controller {
         ) {
             
             if( $_POST['password'] !== $_POST['passwordConfirmed'] ) {
-                $register_message = 'Passwords mismatch!';
-                // TODO: if user already exist throw message that the registration is not possible because of that
-                // TODO: the same for emails
+                $this -> registration_message = 'Passwords mismatch!';
             } else {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
@@ -50,13 +48,10 @@ class Register_Controller extends Main_Controller {
 
                 $is_registered = $auth -> register( $user );
 
-                if ( $is_registered === self::register_not_possible ) {
-                    $this -> addErrorMessage('Register not successful. Try again!');
-                    //echo $register_message;
+                if( $is_registered === self::register_not_possible ) {
+                    $this -> registration_message = 'Register not successful. Try again!';
                 } else {
-                    $this -> addInfoMessage('Register successful!');
-                    //echo $register_message;
-
+                    $this -> registration_message = 'Registration successful. Please login!';
                     $auth -> login($username, $password);
 
                     header('Location: ' . DX_URL . 'admin/posts/index');
@@ -64,8 +59,6 @@ class Register_Controller extends Main_Controller {
             }
 
         }
-
-        //echo $register_message;
 
         $template_name = DX_ROOT_DIR . $this -> views_dir . 'index.php';
         include_once $this -> layout;

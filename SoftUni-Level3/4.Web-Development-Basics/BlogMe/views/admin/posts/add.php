@@ -6,34 +6,43 @@
                 <div class="form-group">
                     <label for="title">Title: </label>
                         <input type="text" id="title" class="form-control" required name="title"
-                               value="<?php if( isset( $this -> formValues['title'] ) ) {
+                               value="<?php
+                               if( isset( $this -> formValues['title'] ) ) {
                                    echo( $this -> getFieldValue('title') );
                                }
                                ?>"/>
-                        <?php if( isset( $this -> validationErrors['title'] ) ) {
-                            echo $this -> getValidationError('title');
-                        } ?>
+                                <?php
+                                if( isset( $this -> validationErrors['title'] ) ) {
+                                        echo $this -> getValidationError('title');
+                                        echo '<br />';
+                                } ?>
+                        <br />
                         <label for="content">Content: </label>
                         <textarea id="content" rows="12" class="form-control" required name="content"
-                               value="<?php if( isset( $this -> formValues['content'] ) ) {
+                               value="<?php
+                               if( isset( $this -> formValues['content'] ) ) {
                                    echo( $this -> getFieldValue('content') );
                                }
-                               ?>">
-                        </textarea>
-                        <?php if( isset( $this -> validationErrors['content'] ) ) {
-                            echo  $this -> getValidationError('content');
-                        }
-                        ?>
+                               ?>"></textarea>
+                                <?php
+                                if( isset( $this -> validationErrors['content'] ) ) {
+                                     echo  $this -> getValidationError('content');
+                                     echo '<br />';
+                                }
+                                ?>
+                        <br />
                         <label for="tags">Tags (separated by comma): </label>
                         <input type="text" id="tags" class="form-control" required name="tags"
                                value="<?php if( isset( $this -> formValues['tags'] ) ) {
                                    echo( $this -> getFieldValue('tags') );
                                }
                                ?>"/>
-                        <?php if( isset( $this -> validationErrors['tags'] ) ) {
-                            echo $this -> getValidationError('tags');
-                        }
-                        ?>
+                                <?php
+                                if( isset( $this -> validationErrors['tags'] ) ) {
+                                    echo $this -> getValidationError('tags');
+                                    echo '<br />';
+                                }
+                                ?>
                         <br />
                         <input type="submit" value="Submit" class="btn btn-primary" />
                 </div>
