@@ -34,8 +34,8 @@
                     <?php
                     foreach( $this -> tags[$post['Id']] as $tag_array ):  ?>
                         <a href="<?php
-                        DX_URL ?>admin/posts/search_by_tag/<?php
-                        echo htmlspecialchars( $tag_array['Id'])?>"><?php
+                            echo DX_URL ?>admin/posts/search_by_tag/<?php
+                            echo htmlspecialchars( $tag_array['Id'])?>"><?php
                             echo htmlspecialchars( $tag_array['Name'])?></a>
                     <?php endforeach; ?>
                 </p>

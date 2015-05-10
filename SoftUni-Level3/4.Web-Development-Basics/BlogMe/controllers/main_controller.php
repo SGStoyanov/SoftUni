@@ -34,7 +34,7 @@ class Main_Controller {
     }
 
     public function index() {
-        $this -> renderView('index.php');
+        header("Location: " . DX_URL . "posts/");
     }
 
     public function redirectToUrl( $url ) {

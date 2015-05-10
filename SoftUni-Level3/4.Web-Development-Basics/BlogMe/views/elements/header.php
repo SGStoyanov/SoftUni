@@ -52,7 +52,7 @@
                                 <li>
                                     <a id="users-btn" href="<?php
                                               echo DX_URL ?>admin/users/view/<?php echo $this -> logged_user['id']; ?>">
-                                        <?php echo $this -> logged_user['username']; ?>
+                                        <?php echo htmlspecialchars($this -> logged_user['username']); ?>
                                     </a>
                                 </li>
                                 <li>
