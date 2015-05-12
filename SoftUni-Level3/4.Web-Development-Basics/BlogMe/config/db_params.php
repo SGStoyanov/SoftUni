@@ -3,8 +3,8 @@
 namespace Config;
 
 define( 'DB_HOST', 'localhost' );
-define( 'DB_USER', 'stoyan2_blogme' );
-define( 'DB_PASS', 'NAH1)9pzK,CX.#qzI&');
+define( 'DB_USER', '' );
+define( 'DB_PASS', '');
 define( 'DB_NAME', 'stoyan2_blogmedb' );
 
 //define( 'DB_USER', 'root' );
