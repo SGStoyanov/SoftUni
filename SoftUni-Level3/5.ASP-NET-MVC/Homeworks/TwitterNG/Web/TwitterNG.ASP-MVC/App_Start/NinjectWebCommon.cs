@@ -1,9 +1,7 @@
-using TwitterNG.ASP_MVC;
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TwitterNG.Web.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TwitterNG.Web.App_Start.NinjectWebCommon), "Stop")]
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
-
-namespace TwitterNG.ASP_MVC
+namespace TwitterNG.Web.App_Start
 {
     using System;
     using System.Web;

@@ -10,12 +10,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{096C29BB-5D16-43A3-B228-F8FD13B30041}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Libraries", "External Libraries", "{E233799B-9AF9-43A7-B9F1-6259A03C5587}"
+	ProjectSection(SolutionItems) = preProject
+		External Libraries\System.Web.Mvc.Expressions.dll = External Libraries\System.Web.Mvc.Expressions.dll
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNG.Models", "Data\TwitterNG.Models\TwitterNG.Models.csproj", "{EA6DE38B-1931-4B7E-B180-E33C9F4480F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNG.Data", "Data\TwitterNG.Data\TwitterNG.Data.csproj", "{68045D0F-A799-4969-BBEA-8A8808AF6806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNG.ASP-MVC", "Web\TwitterNG.ASP-MVC\TwitterNG.ASP-MVC.csproj", "{8DCF54D5-CE85-4C05-8D5F-AF0EBE6CB99D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterNG.Web", "Web\TwitterNG.ASP-MVC\TwitterNG.Web.csproj", "{8DCF54D5-CE85-4C05-8D5F-AF0EBE6CB99D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

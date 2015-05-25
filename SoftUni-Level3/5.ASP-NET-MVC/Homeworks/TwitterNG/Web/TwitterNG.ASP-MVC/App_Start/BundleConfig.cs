@@ -1,8 +1,7 @@
-﻿using System.Web;
-using System.Web.Optimization;
-
-namespace TwitterNG.ASP_MVC
+﻿namespace TwitterNG.ASP_MVC
 {
+    using System.Web.Optimization;
+
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
@@ -25,6 +24,7 @@ namespace TwitterNG.ASP_MVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-Cerulean-theme.css",
                       "~/Content/site.css"));
         }
     }
