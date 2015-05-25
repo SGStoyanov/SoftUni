@@ -2,16 +2,11 @@
 {
     using System.Web.Mvc;
 
-    using TwitterNG.Web.Controllers;
     using TwitterNG.Data;
 
     public class HomeController : BaseController
     {
-        public HomeController(ITwitterNgData data)
-            : base(data)
-        {
-        }
-
+        
         public ActionResult Index()
         {
             if (this.UserProfile != null)
@@ -33,6 +28,11 @@
             this.ViewBag.Message = "My contact page.";
 
             return this.View();
+        }
+
+        public HomeController(ITwitterNgData data)
+            : base(data)
+        {
         }
     }
 }

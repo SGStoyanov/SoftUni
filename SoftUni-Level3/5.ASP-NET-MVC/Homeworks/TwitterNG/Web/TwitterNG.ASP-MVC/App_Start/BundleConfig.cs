@@ -1,4 +1,4 @@
-﻿namespace TwitterNG.ASP_MVC
+﻿namespace TwitterNG.Web
 {
     using System.Web.Optimization;
 

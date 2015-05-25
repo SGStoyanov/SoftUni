@@ -11,8 +11,6 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using TwitterNG.ASP_MVC;
-    using TwitterNG.Web.Models;
     using TwitterNG.Data;
     using TwitterNG.Models;
     using TwitterNG.Web.ViewModels;

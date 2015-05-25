@@ -9,7 +9,6 @@
 
     using Owin;
 
-    using TwitterNG.ASP_MVC;
     using TwitterNG.Data;
     using TwitterNG.Models;
 
