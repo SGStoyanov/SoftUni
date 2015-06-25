@@ -1,5 +1,6 @@
 ﻿namespace TwitterNG.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
     using TwitterNG.Data;
@@ -14,7 +15,8 @@
                 this.ViewBag.Username = this.UserProfile.UserName;
             }
 
-            return this.View();
+            var tweets = this.Data.Tweets.All().AsEnumerable();
+            return this.View(tweets);
         }
 
         public ActionResult About()

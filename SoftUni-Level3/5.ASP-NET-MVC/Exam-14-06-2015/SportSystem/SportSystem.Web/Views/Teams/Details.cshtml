@@ -1,0 +1,13 @@
+﻿@model SportSystem.Web.ViewModels.TeamDetailsViewModel
+
+@{
+    ViewBag.Title = "Team Details";
+}
+
+<div class="container">
+    <h2>@Model.Name:</h2>
+    <p>Nickname: @Model.NickName</p>
+    <p>Founded: @Model.DateFounded</p>
+    <h3>Players:</h3>
+    @Html.DisplayFor(x => x.Players)
+</div>

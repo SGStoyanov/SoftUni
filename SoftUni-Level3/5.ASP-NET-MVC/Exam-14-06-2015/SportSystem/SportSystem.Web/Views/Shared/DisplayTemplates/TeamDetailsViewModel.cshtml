@@ -1,0 +1,11 @@
+﻿@model SportSystem.Web.ViewModels.TeamDetailsViewModel
+
+<div class="row">
+    <div class="well">
+        <h3>@Model.Name</h3>
+        <p>Nickname: @Model.NickName</p>
+        <p>Founded: @Model.DateFounded</p>
+        <h3>Players:</h3>
+        @Html.DisplayFor(x => x.Players)
+    </div>
+</div>
