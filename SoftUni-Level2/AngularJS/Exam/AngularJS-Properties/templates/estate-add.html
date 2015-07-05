@@ -1,0 +1,29 @@
+﻿<!-- Add estate form -->
+<section>
+    <div class="add-estate-form">
+        <header class="main-header">Add new estate</header>
+        <div class="data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Estate name..." ng-model="estate.name" required/>
+            <label for="category">Category:</label>
+            <!--<input type="text" id="category" placeholder="Category..." ng-model="estate.category" required/>-->
+            <br/>
+            <select id="category" ng-model="estate.categoryId" required>
+                <option class="category" value="{{category.objectId}}" ng-repeat="category in categories">
+                    {{category.name}}
+                </option>
+            </select>
+            <br/>
+            <label for="price">Price:</label>
+            <input type="text" id="price" placeholder="0.00" ng-model="estate.price" required/>
+        </div>
+        <div class="panel">
+            <button type="submit" id="add-estate-button" class="button" ng-click="addEstate(estate)">
+                Add
+            </button>
+            <a href="#/user/estates">
+                <button class="button">Cancel</button>
+            </a>
+        </div>
+    </div>
+</section>

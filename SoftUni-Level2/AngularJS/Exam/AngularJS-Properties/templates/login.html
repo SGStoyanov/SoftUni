@@ -1,0 +1,17 @@
+﻿<!-- Login form -->
+<section>
+    <div class="login-form" name="loginForm">
+        <header class="main-header">Login</header>
+        <div class="data">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Username..." ng-model="user.username" required="true" />
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Password..." ng-model="user.password" required="true" />
+        </div>
+        <div class="panel">
+            <button id="login-button" class="button" ng-click="login(user)">Login</button>
+            <span>or</span>
+            <a href="#/register">Register</a>
+        </div>
+    </div>
+</section>

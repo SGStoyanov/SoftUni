@@ -1,0 +1,15 @@
+﻿<div>
+    <div class="estate-info">
+        <p class="item-name">{{estate.name}}</p>
+        <p class="category"><span class="pre">Category:</span>{{estate.category.objectId}}</p>
+        <p class="price"><span class="pre">Price:</span> {{estate.price}}</p>
+    </div>
+    <footer class="estate-footer">
+        <a href="#/user/estate-edit">
+            <button class="edit-button" ng-click="editor(estate)">Edit</button>
+        </a>
+        <a href="#/user/estates-delete">
+            <button class="delete-button" ng-click="deleteEstate(estate)">Delete</button>
+        </a>
+    </footer>
+</div>
