@@ -1,0 +1,5 @@
+username: lubuduj
+e-mail: lubuduj@bladesmail.net
+password: a123456
+
+JIRA: https://emzotic.atlassian.net/

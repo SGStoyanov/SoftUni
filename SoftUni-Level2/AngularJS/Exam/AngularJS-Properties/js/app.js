@@ -4,7 +4,8 @@ var app = angular.module('propertiesApp', ['ngRoute', 'notyModule', 'ngMessages'
 
 app.constant('baseServiceUrl', 'https://api.parse.com/1/');
 app.constant('parseComHeaders', {
-    
+    'X-Parse-Application-Id': 'x12cyxgOyktccCGscRopWcwVUbLrgpMx63m4in5T',
+    'X-Parse-REST-API-Key': '1peLykTg4yLMaL0XcqDfa2hpG3g4PYURhFQ036hb'
 });
 
 app.config(['$routeProvider', function ($routeProvider) {
