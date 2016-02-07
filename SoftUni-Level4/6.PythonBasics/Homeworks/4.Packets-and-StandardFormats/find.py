@@ -28,8 +28,6 @@ if len(sys.argv) == 3 and os.path.isdir(sys.argv[1]):
 
     if not fileFound:
         print('File not found!')
-        targetFile = sys.argv[2]
-        print(targetFile[-1])
         for args in sys.argv:
             print('Argument: ' + args)
 else:
