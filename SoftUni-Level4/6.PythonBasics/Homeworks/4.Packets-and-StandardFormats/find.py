@@ -31,6 +31,6 @@ if len(sys.argv) == 3 and os.path.isdir(sys.argv[1]):
         for args in sys.argv:
             print('Argument: ' + args)
 else:
-    logging.warning('Wrong input!')
+    logging.warning('Wrong input! You have to enter three parameters: 1. The script, 2. The target directory, 3. The needed file')
     for args in sys.argv:
         print('Argument: ' + args)
