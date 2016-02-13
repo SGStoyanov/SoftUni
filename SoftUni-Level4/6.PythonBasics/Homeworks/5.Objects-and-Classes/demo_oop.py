@@ -1,14 +1,14 @@
-import sys
 import json
+import sys
 import turtle
 
-from figures.base import Figure
-from figures.simple import Circle, Square, Rectangle
+from figures.simple import Circle, Square, Rectangle, RegularPolygon
 
 FIGURE_TYPES = {
     "circle": Circle,
     "square": Square,
     "rectangle": Rectangle,
+    "polygon": RegularPolygon,
 }
 
 

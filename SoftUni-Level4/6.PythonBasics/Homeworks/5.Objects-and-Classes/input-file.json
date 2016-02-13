@@ -1,9 +1,9 @@
 [
-    {"type": "pie", "center_x": 0, "center_y": 0, "radius": 150, "arg_degrees": 30, "color": "blue"},
+    {"type": "polygon", "center_x": 0, "center_y": 0, "radius": 130, "num_sides" : 5, "color": "green"},
+    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 100, "color": "red"},
     {"type": "rectangle", "center_x": 0, "center_y": 0, "width": 250, "height": 50, "color": "orange"},
     {"type": "square", "center_x": 0, "center_y": 0, "side": 2, "color": "black"},
     {"type": "square", "center_x": 0, "center_y": 0, "side": 100, "color": "red"},
     {"type": "square", "center_x": 0, "center_y": 0, "side": 200, "color": "blue"},
-    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 50, "color": "blue"},
-    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 100, "color": "red"}
+    {"type": "circle", "center_x": 0, "center_y": 0, "radius": 50, "color": "blue"}
 ]

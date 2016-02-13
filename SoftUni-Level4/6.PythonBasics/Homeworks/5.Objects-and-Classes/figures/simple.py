@@ -12,6 +12,9 @@ class Circle(Figure):
                     self.center_y - self.radius)  # From docs: The center is radius units left of the turtle;
         turtle.pendown()
         turtle.color(self.color)
+        self.draw_circle(turtle)
+
+    def draw_circle(self, turtle):
         turtle.circle(self.radius)
 
 
@@ -59,3 +62,12 @@ class Rectangle(Figure):
             turtle.left(90)
             turtle.forward(self.width)
             turtle.left(90)
+
+
+class RegularPolygon(Circle):
+    def __init__(self, radius, num_sides, **kwargs):
+        super().__init__(radius=radius, **kwargs)
+        self.num_sides = num_sides
+
+    def draw_circle(self, turtle):
+        turtle.circle(radius=self.radius, steps=self.num_sides)
